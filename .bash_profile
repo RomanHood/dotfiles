@@ -5,34 +5,30 @@ export HISTFILESIZE=1000000
 shopt -s histappend
 
 # Taken from Jake: does an ls after cd
-function ci()
-{
+function ci() {
     builtin cd ${1:-$HOME} && ls
 }
 
-function c_functions()
-{
+function c_functions() {
   grep -E "^[a-z]+\s+[a-z_A-Z,]+\([a-z \*A-Z_,]+\)" $@ | sort
 }
 
 
 # The following is a function that will allow the user to search 
 # the files of the current directory for the string that is passed.
-function ss()
-{
+function ss() {
 	find . | xargs grep "$@" -sl
 }
 
-function show_env
-{
+function show_env () {
     echo -n $cyan
     echo "+-------------------------------------------------------"
     echo "| rvm: $(rvm current)"
     echo "+-------------------------------------------------------"
     echo -n $txtrst
 }
-function set_window_and_tab_title()
-{
+
+function set_window_and_tab_title() {
 	local pwd_length=42 # set the maximum length just incase with dig deep.
 	local dir="$PWD"    # get the cwd
 
