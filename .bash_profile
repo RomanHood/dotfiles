@@ -1,1 +1,1 @@
-echo "bash_profile"
+echo "dotfiles bash_profile"

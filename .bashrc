@@ -1,4 +1,5 @@
-[[ -r $rvm_path/scripts/completion ]] && . $.rvm_path/scripts/completion 
+echo "dotfiles bashrc"
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion 
 #--
 # MAIN
 export EDITOR=vim
