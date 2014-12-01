@@ -1,3 +1,43 @@
+[[ -r $rvm_path/scripts/completion ]] && . $.rvm_path/scripts/completion 
+#--
+# MAIN
+export EDITOR=vim
+
+# My Aliasez
+alias glade='open -a /Applications/Glade.app'
+alias lh="clear; ls -larth"
+alias cp="cp -v"
+alias mv="mv -v"
+alias rm="rm -v"
+alias ls="ls -G"
+alias cls="clear; ls"
+alias oo='open -a /Applications/OpenOffice.org.app'
+alias chrome='open -a /Applications/Google\ Chrome.app'
+alias sf="cd ~/Google\ Drive/Work/Clients/Smooth\ Finish/ftp"
+alias ll="ls -alh"
+alias v='vim .'
+alias preview='open -a /Applications/Preview.app'
+alias vc='vim ~/.virmc'
+alias dot='vim ~/.bash* .vimrc'
+
+# Handy colored tags for scripting
+txtrst=$(tput sgr0)
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+cyan=$(tput setaf 6)
+
+
+if [[ "$TERM" == "xterm" || "$TERM" == "xterm-color" ]]; then
+	export PROMPT_COMMAND="set_window_and_tab_title"
+	export HISTCONTROL=erasedups
+	shopt -s histappend
+    #PS1="\w \$ "
+    #export PS1
+fi
+export PATH=/usr/local/bin:$PATH
+PATH=$PATH:$HOME/.rvm/bin 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export HISTCONTROL=ignoreduops:erasedups
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
@@ -96,7 +136,7 @@ YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
 NO_COLOUR="\[\033[0m\]"
 
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 PS1="$GREEN\u$NO_COLOUR:\w$YELLOW\$(parse_git_branch_or_tag)$NO_COLOUR\$ "
 export PS1
 
-[[ -f "/etc/bashrc" ]] && source "/etc/bashrc"
