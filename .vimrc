@@ -108,6 +108,7 @@ call vundle#begin()
     let g:airline_right_sep = ''
     let g:airline_section_y = "%{strlen(&ft)?&ft:'none'}"
   Plugin 'flazz/vim-colorschemes'
+  Plugin 'vim-scripts/csv.vim'
 
 call vundle#end()
 
