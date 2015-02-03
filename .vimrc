@@ -109,6 +109,8 @@ call vundle#begin()
   Plugin 'thoughtbot/vim-rspec'
   Plugin 'Shougo/vimshell.vim'
   Plugin 'sjl/gundo.vim'
+  Plugin 'christoomey/vim-tmux-nagigator'
+  let g:NERDTreeWinPos = "right"
 
 call vundle#end()
 
