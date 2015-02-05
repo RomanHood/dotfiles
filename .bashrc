@@ -140,4 +140,4 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 PS1="$GREEN\u$NO_COLOUR:\w$YELLOW\$(parse_git_branch_or_tag)$NO_COLOUR\$ "
 export PS1
 
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=screen-256color tmux"
