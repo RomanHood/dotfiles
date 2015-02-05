@@ -1,4 +1,3 @@
-exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 
 set expandtab               " Indentation
 set shiftwidth=2
@@ -23,6 +22,7 @@ filetype plugin on
 filetype indent on
 syntax on                   " Colors
 
+exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 " Unmap arrow keys
 no <down> <Nop> 
 no <left> <Nop>
