@@ -1,9 +1,7 @@
-
 set expandtab               " Indentation
 set shiftwidth=2
 set softtabstop=2
 set noswapfile              " No swap files, use version control instead
-set paste                   " Fix bad autoindent of pasted text
 set number                  " Show line numbers
 set foldmethod=syntax       " Folding
 set foldcolumn=1            " Folding
