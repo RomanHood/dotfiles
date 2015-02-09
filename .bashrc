@@ -108,6 +108,8 @@ alias v='vim .'
 alias preview='open -a /Applications/Preview.app'
 alias vc='vim ~/.virmc'
 alias dot='vim ~/.bash* .vimrc'
+alias vu='vagrant up'
+alias vsh='vagrant ssh'
 
 # Handy colored tags for scripting
 txtrst=$(tput sgr0)
