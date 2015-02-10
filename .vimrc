@@ -46,11 +46,14 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 
-nmap <leader>T :enew<cr>
 nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
-nmap <leader>bq :bp <BAR> bd #<CR>
-nmap <leader>bl :ls<CR>
+
+" vim-rspec mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>p :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 "let g:vim_markdown_folding_disbled=1 " Markdown
 "let javaScript_fold=1                " Javascript
@@ -107,8 +110,10 @@ call vundle#begin()
   Plugin 'thoughtbot/vim-rspec'
   Plugin 'Shougo/vimshell.vim'
   Plugin 'sjl/gundo.vim'
+  Plugin 'jgdavey/tslime.vim'
   Plugin 'christoomey/vim-tmux-navigator'
   let g:NERDTreeWinPos = "right"
+  let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 
 call vundle#end()
 
