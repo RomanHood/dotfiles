@@ -139,7 +139,7 @@ GREEN="\[\033[0;32m\]"
 NO_COLOUR="\[\033[0m\]"
 
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-PS1="$GREEN\u$NO_COLOUR:\w$YELLOW\$(parse_git_branch_or_tag)$NO_COLOUR\$ "
+PS1="$(tput setaf 6)\w$YELLOW\$(parse_git_branch_or_tag)\n$(tput setaf 2)[ \u ] $ \$(tput sgr0)"
 export PS1
 
 alias tmux="TERM=screen-256color tmux"
