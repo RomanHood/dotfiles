@@ -102,7 +102,6 @@ alias ls="ls -G"
 alias cls="clear; ls"
 alias oo='open -a /Applications/OpenOffice.org.app'
 alias chrome='open -a /Applications/Google\ Chrome.app'
-alias sf="cd ~/Google\ Drive/Work/Clients/Smooth\ Finish/ftp"
 alias ll="ls -alh"
 alias v='vim .'
 alias preview='open -a /Applications/Preview.app'
@@ -139,7 +138,6 @@ GREEN="\[\033[0;32m\]"
 NO_COLOUR="\[\033[0m\]"
 
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-PS1="$(tput setaf 6)\w$YELLOW\$(parse_git_branch_or_tag)\n$(tput setaf 2)[ \u ] $ \$(tput sgr0)"
-export PS1
+export PS1="|$cyan\w$yellow\$(parse_git_branch_or_tag)$txtrst| |$red$(rvm current | cut -c 6-)$txtrst| |$green\u@\h$txtrst| \n$ "
 
 alias tmux="TERM=screen-256color tmux"
