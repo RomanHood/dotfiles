@@ -14,6 +14,7 @@ set splitbelow              " Natural feeling window splits
 set splitright
 set encoding=utf-8
 set hidden                  " My preference with using buffers. See `:h hidden` for more details
+set shellcmdflag=-ic        " Make vim shell (:!) behave like commandprompt
 
 filetype on
 filetype plugin on
