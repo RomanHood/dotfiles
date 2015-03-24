@@ -87,11 +87,6 @@ parse_git_branch_or_tag() {
 }
 
 
-[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
-#--
-# MAIN
-export EDITOR=vim
-
 # My Aliasez
 alias glade='open -a /Applications/Glade.app'
 alias lh="clear; ls -larth"
@@ -117,7 +112,10 @@ red=$(tput setaf 1)
 green=$(tput setaf 2)
 yellow=$(tput setaf 3)
 cyan=$(tput setaf 6)
-
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+NO_COLOUR="\[\033[0m\]"
 
 if [[ "$TERM" == "xterm" || "$TERM" == "xterm-color" ]]; then
 	export PROMPT_COMMAND="set_window_and_tab_title" 
@@ -128,16 +126,11 @@ fi
 export HISTCONTROL=ignoreduops:erasedups
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
-shopt -s histappend
-
-
-RED="\[\033[0;31m\]"
-YELLOW="\[\033[0;33m\]"
-GREEN="\[\033[0;32m\]"
-NO_COLOUR="\[\033[0m\]"
-
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export PS1="|$cyan\w$yellow\$(parse_git_branch_or_tag)$txtrst| |$red\$(rvm current | cut -c 6-)$txtrst| |$green\u@\h$txtrst| \n$ "
+export EDITOR=vim
+shopt -s histappend
 
 PATH=$PATH:$HOME/.rvm/bin
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
