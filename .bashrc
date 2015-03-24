@@ -137,7 +137,7 @@ GREEN="\[\033[0;32m\]"
 NO_COLOUR="\[\033[0m\]"
 
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-export PS1="|$cyan\w$yellow\$(parse_git_branch_or_tag)$txtrst| |$red$(rvm current | cut -c 6-)$txtrst| |$green\u@\h$txtrst| \n$ "
+export PS1="|$cyan\w$yellow\$(parse_git_branch_or_tag)$txtrst| |$red\$(rvm current | cut -c 6-)$txtrst| |$green\u@\h$txtrst| \n$ "
 
 PATH=$PATH:$HOME/.rvm/bin
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
