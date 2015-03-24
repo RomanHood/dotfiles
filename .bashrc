@@ -109,6 +109,7 @@ alias vc='vim ~/.virmc'
 alias dot='vim ~/.bash* .vimrc'
 alias vu='vagrant up'
 alias vsh='vagrant ssh'
+alias tmux="TERM=screen-256color tmux"
 
 # Handy colored tags for scripting
 txtrst=$(tput sgr0)
@@ -124,8 +125,6 @@ if [[ "$TERM" == "xterm" || "$TERM" == "xterm-color" ]]; then
 	shopt -s histappend
 fi
 
-PATH=$PATH:$HOME/.rvm/bin
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export HISTCONTROL=ignoreduops:erasedups
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
@@ -140,4 +139,5 @@ NO_COLOUR="\[\033[0m\]"
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export PS1="|$cyan\w$yellow\$(parse_git_branch_or_tag)$txtrst| |$red$(rvm current | cut -c 6-)$txtrst| |$green\u@\h$txtrst| \n$ "
 
-alias tmux="TERM=screen-256color tmux"
+PATH=$PATH:$HOME/.rvm/bin
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
