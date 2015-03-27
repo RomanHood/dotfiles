@@ -106,6 +106,9 @@ alias vu='vagrant up'
 alias vsh='vagrant ssh'
 alias tmux="TERM=screen-256color-bce tmux"
 alias tmuxinator="TERM=screen-256color-bce tmuxinator"
+alias tl="tmux list-sessions"
+alias tk="tmux kill-session -t"
+alias ta="tmux attach -t"
 
 # Handy colored tags for scripting
 txtrst=$(tput sgr0)
