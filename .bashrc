@@ -109,7 +109,8 @@ alias vc='vim ~/.virmc'
 alias dot='vim ~/.bash* .vimrc'
 alias vu='vagrant up'
 alias vsh='vagrant ssh'
-alias tmux="TERM=screen-256color tmux"
+alias tmux="TERM=screen-256color-bce tmux"
+alias tmuxinator="TERM=screen-256color-bce tmuxinator"
 
 # Handy colored tags for scripting
 txtrst=$(tput sgr0)
