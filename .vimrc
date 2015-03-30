@@ -42,6 +42,7 @@ call vundle#begin()
   Plugin 'sjl/gundo.vim'
   Plugin 'jgdavey/tslime.vim'
   Plugin 'christoomey/vim-tmux-navigator'
+  Plugin 'justinmk/vim-syntax-extra'
   let g:NERDTreeWinPos = "right"
   let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 call vundle#end()
