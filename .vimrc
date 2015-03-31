@@ -1,3 +1,4 @@
+set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -11,6 +12,7 @@ call vundle#begin()
   Plugin 'nathanaelkane/vim-indent-guides'
   Plugin 'Raimondi/delimitMate'
   Plugin 'kien/ctrlp.vim'
+    let g:ctrlp_show_hidden=1
   Plugin 'mileszs/ack.vim'
     let g:ackprg = 'ag --nogroup --nocolor --column'
   Plugin 'scrooloose/nerdtree'
@@ -56,7 +58,6 @@ set foldmethod=syntax       " Folding
 set foldcolumn=1            " Folding
 set foldlevelstart=20       " Folding
 set list
-set nocompatible
 set t_Co=256
 set background=dark
 set splitbelow              " Natural feeling window splits
