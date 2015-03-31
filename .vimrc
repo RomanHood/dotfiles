@@ -46,6 +46,7 @@ call vundle#begin()
   Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'justinmk/vim-syntax-extra'
   let g:NERDTreeWinPos = "right"
+  let NERDTreeShowHidden=1
   let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 call vundle#end()
 
