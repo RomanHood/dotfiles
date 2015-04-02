@@ -1,3 +1,55 @@
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+  Plugin 'gmarik/Vundle.vim'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'L9'
+  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+  Plugin 'git://git.wincent.com/command-t.git'
+  Plugin 'jelera/vim-javascript-syntax'
+  Plugin 'pangloss/vim-javascript'
+  Plugin 'nathanaelkane/vim-indent-guides'
+  Plugin 'Raimondi/delimitMate'
+  Plugin 'kien/ctrlp.vim'
+    let g:ctrlp_show_hidden=1
+  Plugin 'mileszs/ack.vim'
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'scrooloose/syntastic'
+    let g:syntastic_check_on_open=1
+
+  Plugin 'bling/vim-airline'
+    if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+    endif
+    " unicode symbols
+    let g:airline_powerline_fonts=0
+    let g:airline#extensions#tabline#enabled=1
+    let g:airline#extensions#tabline#fnamemod = ':t'
+    let g:airline_symbols.branch = '⎇'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_section_y=""
+    set laststatus=2
+    set ttimeoutlen=50
+    let g:airline_powerline_fonts=0
+    let g:airline_theme='badwolf'
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_section_y = "%{strlen(&ft)?&ft:'none'}"
+  Plugin 'flazz/vim-colorschemes'
+  Plugin 'chrisbra/csv.vim'
+  Plugin 'thoughtbot/vim-rspec'
+  Plugin 'Shougo/vimshell.vim'
+  Plugin 'sjl/gundo.vim'
+  Plugin 'jgdavey/tslime.vim'
+  Plugin 'christoomey/vim-tmux-navigator'
+  Plugin 'justinmk/vim-syntax-extra'
+  let g:NERDTreeWinPos = "right"
+  let NERDTreeShowHidden=1
+  let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+call vundle#end()
+
 set expandtab               " Indentation
 set shiftwidth=2
 set softtabstop=2
@@ -7,13 +59,13 @@ set foldmethod=syntax       " Folding
 set foldcolumn=1            " Folding
 set foldlevelstart=20       " Folding
 set list
-set nocompatible
 set t_Co=256
 set background=dark
 set splitbelow              " Natural feeling window splits
 set splitright
 set encoding=utf-8
 set hidden                  " My preference with using buffers. See `:h hidden` for more details
+set shellcmdflag=-ic        " Make vim shell (:!) behave like commandprompt
 
 filetype on
 filetype plugin on
@@ -45,12 +97,18 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nnoremap 1 :!
+nnoremap ; :
+nnoremap <C-n> :NERDTree<CR>
 
-nmap <leader>T :enew<cr>
 nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
-nmap <leader>bq :bp <BAR> bd #<CR>
-nmap <leader>bl :ls<CR>
+
+" vim-rspec mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>p :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 "let g:vim_markdown_folding_disbled=1 " Markdown
 "let javaScript_fold=1                " Javascript
@@ -65,51 +123,5 @@ nmap <leader>bl :ls<CR>
 "
 " Vundle
 "
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-  Plugin 'gmarik/Vundle.vim'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'L9'
-  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-  Plugin 'git://git.wincent.com/command-t.git'
-  Plugin 'jelera/vim-javascript-syntax'
-  Plugin 'pangloss/vim-javascript'
-  Plugin 'nathanaelkane/vim-indent-guides'
-  Plugin 'Raimondi/delimitMate'
-  Plugin 'kien/ctrlp.vim'
-  Plugin 'mileszs/ack.vim'
-    let g:ackprg = 'ag --nogroup --nocolor --column'
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'scrooloose/syntastic'
-    let g:syntastic_check_on_open=1
-
-  Plugin 'bling/vim-airline'
-    if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-    endif
-    " unicode symbols
-    let g:airline_powerline_fonts=0
-    let g:airline#extensions#tabline#enabled=1
-    let g:airline#extensions#tabline#fnamemod = ':t'
-    let g:airline_symbols.branch = '⎇'
-    let g:airline_symbols.paste = 'ρ'
-    let g:airline_section_y=""
-    set laststatus=2
-    set ttimeoutlen=50
-    " ~/.vim/settings/airline.vim
-    let g:airline_powerline_fonts=0
-    let g:airline_theme='badwolf'
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_section_y = "%{strlen(&ft)?&ft:'none'}"
-  Plugin 'flazz/vim-colorschemes'
-  Plugin 'chrisbra/csv.vim'
-  Plugin 'thoughtbot/vim-rspec'
-  Plugin 'Shougo/vimshell.vim'
-  Plugin 'sjl/gundo.vim'
-  Plugin 'christoomey/vim-tmux-navigator'
-  let g:NERDTreeWinPos = "right"
-
-call vundle#end()
 
 colorscheme railscasts

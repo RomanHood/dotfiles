@@ -87,11 +87,6 @@ parse_git_branch_or_tag() {
 }
 
 
-[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
-#--
-# MAIN
-export EDITOR=vim
-
 # My Aliasez
 alias glade='open -a /Applications/Glade.app'
 alias lh="clear; ls -larth"
@@ -102,7 +97,6 @@ alias ls="ls -G"
 alias cls="clear; ls"
 alias oo='open -a /Applications/OpenOffice.org.app'
 alias chrome='open -a /Applications/Google\ Chrome.app'
-alias sf="cd ~/Google\ Drive/Work/Clients/Smooth\ Finish/ftp"
 alias ll="ls -alh"
 alias v='vim .'
 alias preview='open -a /Applications/Preview.app'
@@ -110,6 +104,13 @@ alias vc='vim ~/.virmc'
 alias dot='vim ~/.bash* .vimrc'
 alias vu='vagrant up'
 alias vsh='vagrant ssh'
+alias tmux="TERM=screen-256color-bce tmux"
+alias tmuxinator="TERM=screen-256color-bce tmuxinator"
+alias mux="TERM=screen-256color-bce mux"
+alias tl="tmux list-sessions"
+alias tk="tmux kill-session -t"
+alias ta="tmux attach -t"
+alias tlw="tmux list-windows"
 
 # Handy colored tags for scripting
 txtrst=$(tput sgr0)
@@ -117,7 +118,10 @@ red=$(tput setaf 1)
 green=$(tput setaf 2)
 yellow=$(tput setaf 3)
 cyan=$(tput setaf 6)
-
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+NO_COLOUR="\[\033[0m\]"
 
 if [[ "$TERM" == "xterm" || "$TERM" == "xterm-color" ]]; then
 	export PROMPT_COMMAND="set_window_and_tab_title" 
@@ -125,21 +129,14 @@ if [[ "$TERM" == "xterm" || "$TERM" == "xterm-color" ]]; then
 	shopt -s histappend
 fi
 
-PATH=$PATH:$HOME/.rvm/bin
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export HISTCONTROL=ignoreduops:erasedups
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PS1="|$cyan\w$yellow\$(parse_git_branch_or_tag)$txtrst| |$red\$(rvm current | cut -c 6-)$txtrst| |$green\u@\h$txtrst| \n$ "
+export EDITOR=vim
 shopt -s histappend
 
-
-RED="\[\033[0;31m\]"
-YELLOW="\[\033[0;33m\]"
-GREEN="\[\033[0;32m\]"
-NO_COLOUR="\[\033[0m\]"
-
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-PS1="$GREEN\u$NO_COLOUR:\w$YELLOW\$(parse_git_branch_or_tag)$NO_COLOUR\$ "
-export PS1
-
-alias tmux="TERM=screen-256color tmux"
+PATH=$PATH:$HOME/.rvm/bin
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
