@@ -129,6 +129,8 @@ if [[ "$TERM" == "xterm" || "$TERM" == "xterm-color" ]]; then
 	shopt -s histappend
 fi
 
+export GREP_OPTIONS="-i --color=tty"
+export GREP_COLOR='07;38;5;74'
 export HISTCONTROL=ignoreduops:erasedups
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
