@@ -101,6 +101,7 @@ nnoremap 1 :!
 nnoremap ; :
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <Leader>TS :%s/\s\+$//<CR>
+nnoremap <Leader>fi mzgg=G'z
 "----------------------------------------------------------------------------------------------------
 " ==== HIT \r TO SAVE THE FILE USING SUDO ====
 nnoremap <Leader>r :w !sudo tee % <CR>
