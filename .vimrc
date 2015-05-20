@@ -74,7 +74,7 @@ syntax on                   " Colors
 
 exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 " Unmap arrow keys
-no <down> <Nop> 
+no <down> <Nop>
 no <left> <Nop>
 no <up> <Nop>
 no <right> <Nop>
@@ -100,6 +100,10 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap 1 :!
 nnoremap ; :
 nnoremap <C-n> :NERDTree<CR>
+nnoremap <Leader>TS :%s/\s\+$//<CR>
+"----------------------------------------------------------------------------------------------------
+" ==== HIT \r TO SAVE THE FILE USING SUDO ====
+nnoremap <Leader>r :w !sudo tee % <CR>
 
 nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
