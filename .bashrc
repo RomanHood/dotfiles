@@ -136,7 +136,7 @@ export HISTCONTROL=ignoreduops:erasedups
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-export PS1="|$cyan\w$yellow\$(parse_git_branch_or_tag)$txtrst| |$red\$(rvm current | cut -c 6-)$txtrst| |$green\h$txtrst| \n$ "
+export PS1="\n|$red\$(rvm current | cut -c 6-)$txtrst| $green======================================================================================== \n$green\u$red:$cyan\w $txtrst$ "
 export EDITOR=vim
 shopt -s histappend
 
