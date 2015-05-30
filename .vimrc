@@ -14,11 +14,10 @@ call vundle#begin()
   Plugin 'kien/ctrlp.vim'
     let g:ctrlp_show_hidden=1
   Plugin 'mileszs/ack.vim'
-    let g:ackprg = 'ag --nogroup --nocolor --column'
+    let g:ackprg = 'ag --column'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/syntastic'
     let g:syntastic_check_on_open=1
-
   Plugin 'bling/vim-airline'
     if !exists('g:airline_symbols')
       let g:airline_symbols = {}
@@ -45,7 +44,7 @@ call vundle#begin()
   Plugin 'jgdavey/tslime.vim'
   Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'justinmk/vim-syntax-extra'
-  let g:NERDTreeWinPos = "right"
+  let g:NERDTreeWinPos = "left"
   let NERDTreeShowHidden=1
   let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 call vundle#end()

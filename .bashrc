@@ -119,6 +119,7 @@ red=$(tput setaf 1)
 green=$(tput setaf 2)
 yellow=$(tput setaf 3)
 cyan=$(tput setaf 6)
+pink=$(tput bold ; tput setaf 5)
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
@@ -130,13 +131,17 @@ if [[ "$TERM" == "xterm" || "$TERM" == "xterm-color" ]]; then
   shopt -s histappend
 fi
 
+function clear_if () {
+  local last=$(history | tail -1 | head -1)
+  [[ $last == *clear* ]] || printf '\n'
+}
 export GREP_OPTIONS="-i --color=tty"
 export GREP_COLOR='07;38;5;74'
 export HISTCONTROL=ignoreduops:erasedups
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-export PS1="\n|$red\$(rvm current | cut -c 6-)$txtrst| $green======================================================================================== \n$green\u$red:$cyan\w $txtrst$ "
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND; clear_if"
+export PS1="|$red\$(rvm current | cut -c 6-)$txtrst| $green======================================================================================== \n$green\u$red:$cyan\w$yellow$pink$(parse_git_branch_or_tag)$txtrst $ "
 export EDITOR=vim
 shopt -s histappend
 
