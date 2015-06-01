@@ -46,7 +46,6 @@ call vundle#begin()
   Plugin 'justinmk/vim-syntax-extra'
   let g:NERDTreeWinPos = "left"
   let NERDTreeShowHidden=1
-  let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 call vundle#end()
 
 set expandtab               " Indentation
@@ -78,6 +77,11 @@ no <left> <Nop>
 no <up> <Nop>
 no <right> <Nop>
 
+ino <down> <Nop>
+ino <left> <Nop>
+ino <up>   <Nop>
+ino <right> <Nop>
+
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 inoremap <C-j> <Esc>:m .+1<CR>==gi
@@ -85,17 +89,13 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-ino <down> <Nop>
-ino <left> <Nop>
-ino <up>   <Nop>
-ino <right> <Nop>
-
 " Split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nnoremap <Leader>vs :e ~/github/dotfiles/.vimrc
 nnoremap <Leader>1 :!
 nnoremap ; :
 nnoremap <C-n> :NERDTree<CR>
@@ -124,8 +124,4 @@ map <Leader>a :call RunAllSpecs()<CR>
 "let vimsyn_foldings='af'             " Vim script
 "let xml_syntax_folding=1             " XML
 
-"
-" Vundle
-"
-
-colorscheme railscasts
+colorscheme inkpot

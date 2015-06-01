@@ -112,6 +112,7 @@ alias ts="mux start"
 alias tk="tmux kill-session -t"
 alias ta="tmux attach -t"
 alias tlw="tmux list-windows"
+alias ms="mux start"
 
 # Handy colored tags for scripting
 txtrst=$(tput sgr0)
