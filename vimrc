@@ -95,7 +95,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <Leader>vs :e ~/github/dotfiles/.vimrc
+nnoremap <Leader>vs :e ~/github/dotfiles/vimrc<CR>
 nnoremap <Leader>1 :!
 nnoremap ; :
 nnoremap <C-n> :NERDTree<CR>
