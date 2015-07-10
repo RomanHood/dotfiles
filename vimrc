@@ -124,6 +124,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 "let sh_fold_enabled=1                " sh
 "let vimsyn_foldings='af'             " Vim script
 "let xml_syntax_folding=1             " XML
-let &colorcolumn=join(range(81,999),",")
+"let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=81
 
 colorscheme inkpot
