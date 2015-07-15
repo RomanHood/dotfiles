@@ -108,12 +108,14 @@ nnoremap <Leader>r :w !sudo tee % <CR>
 
 nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
+nmap <leader>g :G
+nmap <leader>G :Git 
 
 " vim-rspec mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>p :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+"map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :source ~/.vimrc<CR>
+"map <Leader>p :call RunLastSpec()<CR>
+"map <Leader>a :call RunAllSpecs()<CR>
 
 "let g:vim_markdown_folding_disbled=1 " Markdown
 "let javaScript_fold=1                " Javascript
