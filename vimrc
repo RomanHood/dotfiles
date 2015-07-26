@@ -110,10 +110,11 @@ nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
 nmap <leader>g :G
 nmap <leader>G :Git 
+nmap <leader>a :Ack 
+map <Leader>s :source ~/.vimrc<CR>
 
 " vim-rspec mappings
 "map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :source ~/.vimrc<CR>
 "map <Leader>p :call RunLastSpec()<CR>
 "map <Leader>a :call RunAllSpecs()<CR>
 
