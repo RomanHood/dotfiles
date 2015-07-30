@@ -12,30 +12,10 @@ call vundle#begin()
   Plugin 'nathanaelkane/vim-indent-guides'
   Plugin 'Raimondi/delimitMate'
   Plugin 'kien/ctrlp.vim'
-    let g:ctrlp_show_hidden=1
   Plugin 'mileszs/ack.vim'
-    let g:ackprg = 'ag --column'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/syntastic'
-    let g:syntastic_check_on_open=1
   Plugin 'bling/vim-airline'
-    if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-    endif
-    " unicode symbols
-    let g:airline_powerline_fonts=0
-    let g:airline#extensions#tabline#enabled=1
-    let g:airline#extensions#tabline#fnamemod = ':t'
-    let g:airline_symbols.branch = '⎇'
-    let g:airline_symbols.paste = 'ρ'
-    let g:airline_section_y=""
-    set laststatus=2
-    set ttimeoutlen=50
-    let g:airline_powerline_fonts=0
-    let g:airline_theme='badwolf'
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_section_y = "%{strlen(&ft)?&ft:'none'}"
   Plugin 'flazz/vim-colorschemes'
   Plugin 'chrisbra/csv.vim'
   Plugin 'thoughtbot/vim-rspec'
@@ -45,10 +25,32 @@ call vundle#begin()
   Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'justinmk/vim-syntax-extra'
   Plugin 'terryma/vim-multiple-cursors'
-  let g:NERDTreeWinPos = "right"
-  let NERDTreeShowHidden=1
 call vundle#end()
 
+exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_powerline_fonts=0
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_section_y=""
+let g:airline_powerline_fonts=0
+let g:airline_theme='badwolf'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_section_y = "%{strlen(&ft)?&ft:'none'}"
+let g:NERDTreeWinPos = "right"
+let NERDTreeShowHidden=1
+let g:ctrlp_show_hidden=1
+let g:ackprg = 'ag --column'
+let g:syntastic_check_on_open=1
+
+set laststatus=2
+set ttimeoutlen=50
 set expandtab               " Indentation
 set shiftwidth=2
 set softtabstop=2
@@ -71,7 +73,6 @@ filetype plugin on
 filetype indent on
 syntax on                   " Colors
 
-exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 " Unmap arrow keys
 no <down> <Nop>
 no <left> <Nop>
@@ -83,19 +84,11 @@ ino <left> <Nop>
 ino <up>   <Nop>
 ino <right> <Nop>
 
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
-
 " Split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
 nnoremap <Leader>vs :e ~/github/dotfiles/vimrc<CR>
 nnoremap <Leader>1 :!
 nnoremap ; :
@@ -105,6 +98,15 @@ nnoremap <Leader>fi mzgg=G'z
 "----------------------------------------------------------------------------------------------------
 " ==== HIT \r TO SAVE THE FILE USING SUDO ====
 nnoremap <Leader>r :w !sudo tee % <CR>
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
 
 nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
