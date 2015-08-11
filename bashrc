@@ -104,7 +104,7 @@ fi
 shopt -s histappend
 export PROMPT_COMMAND="$PROMPT_COMMAND; history -a; history -c; history -r; clear_if"
 export HISTCONTROL=ignoredups:erasedups
-export PS1="|$red\$(rvm current | cut -c 6-)$txtrst| $green\w$pink\$(parse_git_branch_or_tag) $cyan\h\n\u => "
+export PS1="|$red\$(rvm current | cut -c 6-)$txtrst| $green\w$pink\$(parse_git_branch_or_tag) $cyan\n\u => "
 export GREP_OPTIONS="-i --color=tty"
 export GREP_COLOR='07;38;5;74'
 export HISTSIZE=1000000

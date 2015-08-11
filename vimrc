@@ -1,4 +1,24 @@
 set nocompatible
+set laststatus=2
+set ttimeoutlen=50
+set expandtab               " Indentation
+set shiftwidth=2
+set softtabstop=2
+set noswapfile              " No swap files, use version control instead
+set number                  " Show line numbers
+set foldmethod=syntax       " Folding
+set foldcolumn=1            " Folding
+set foldlevelstart=20       " Folding
+set list
+set t_Co=256
+set background=dark
+set splitbelow              " Natural feeling window splits
+set splitright
+set encoding=utf-8
+set hidden                  " My preference with using buffers. See `:h hidden` for more details
+set shellcmdflag=-ic        " Make vim shell (:!) behave like commandprompt
+
+exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -27,7 +47,6 @@ call vundle#begin()
   Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 
-exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -48,25 +67,6 @@ let NERDTreeShowHidden=1
 let g:ctrlp_show_hidden=1
 let g:ackprg = 'ag --column'
 let g:syntastic_check_on_open=1
-
-set laststatus=2
-set ttimeoutlen=50
-set expandtab               " Indentation
-set shiftwidth=2
-set softtabstop=2
-set noswapfile              " No swap files, use version control instead
-set number                  " Show line numbers
-set foldmethod=syntax       " Folding
-set foldcolumn=1            " Folding
-set foldlevelstart=20       " Folding
-set list
-set t_Co=256
-set background=dark
-set splitbelow              " Natural feeling window splits
-set splitright
-set encoding=utf-8
-set hidden                  " My preference with using buffers. See `:h hidden` for more details
-set shellcmdflag=-ic        " Make vim shell (:!) behave like commandprompt
 
 filetype on
 filetype plugin on
@@ -89,15 +89,13 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap <Leader>vs :e ~/github/dotfiles/vimrc<CR>
-nnoremap <Leader>1 :!
+nnoremap <leader>vs :e ~/github/dotfiles/vimrc<CR>
+nnoremap <leader>1 :!
 nnoremap ; :
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <Leader>TS :%s/\s\+$//<CR>
-nnoremap <Leader>fi mzgg=G'z
-"----------------------------------------------------------------------------------------------------
-" ==== HIT \r TO SAVE THE FILE USING SUDO ====
-nnoremap <Leader>r :w !sudo tee % <CR>
+nnoremap <leader>TS :%s/\s\+$//<CR>
+nnoremap <leader>fi mzgg=G'z
+nnoremap <leader>r :w !sudo tee % <CR> " save the files using sudo
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 
@@ -107,13 +105,12 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-
 nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
 nmap <leader>g :G
 nmap <leader>G :Git 
 nmap <leader>a :Ack 
-map <Leader>s :source ~/.vimrc<CR>
+map <leader>s :source ~/.vimrc<CR>
 
 " vim-rspec mappings
 "map <Leader>t :call RunCurrentSpecFile()<CR>
