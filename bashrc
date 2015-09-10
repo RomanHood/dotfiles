@@ -68,7 +68,7 @@ function set_window_and_tab_title() {
 # for any commands that contain the the passed string.
 
 function h() {
-history | grep "$@"
+  history | grep "$@"
 }
 
 # Show current git branch in command line
@@ -81,7 +81,6 @@ parse_git_tag () {
 }
 
 parse_git_branch_or_tag() {
-
   local OUT="$(parse_git_branch)"
   if [ "$OUT" == " ((no branch))" ]; then
     OUT="[$(parse_git_tag)]";
@@ -95,7 +94,7 @@ function clear_if () {
   [[ $last == *clear* ]] || printf '\n'
 }
 
-if [[ "$TERM" == "xterm" || "$TERM" == "xterm-color" ]]; then
+if [[ "$TERM" =~ "xterm" ]]; then
   shopt -s histappend
   export PROMPT_COMMAND="set_window_and_tab_title"
   export HISTCONTROL=erasedups
@@ -112,19 +111,12 @@ export HISTFILESIZE=1000000
 export EDITOR=vim
 
 # My Aliasez
-alias glade='open -a /Applications/Glade.app'
-alias lh="clear; ls -larth"
-alias cp="cp -v"
-alias mv="mv -v"
-alias rm="rm -v"
-alias ls="ls -G"
-alias cls="clear; ls"
 alias oo='open -a /Applications/OpenOffice.org.app'
 alias chrome='open -a /Applications/Google\ Chrome.app'
-alias ll="ls -alh"
-alias v='vim .'
+alias glade='open -a /Applications/Glade.app'
 alias prev='open -a /Applications/Preview.app'
-alias chrome='open -a /Applications/Google\ Chrome.app'
+alias lh="clear; ls -larth"
+alias v='vim .'
 alias dot='vim ~/.*'
 alias vu='vagrant up'
 alias vsh='vagrant ssh'
@@ -138,6 +130,12 @@ alias ta="tmux attach -t"
 alias tlw="tmux list-windows"
 alias ms="mux start"
 alias doc="docker-compose"
+alias cp="cp -v"
+alias mv="mv -v"
+alias rm="rm -v"
+alias ls="ls -G"
+alias cls="clear; ls"
+alias ll="ls -alh"
 
 PATH=$PATH:$HOME/.rvm/bin
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
