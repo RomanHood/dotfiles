@@ -16,7 +16,8 @@ set splitbelow              " Natural feeling window splits
 set splitright
 set encoding=utf-8
 set hidden                  " My preference with using buffers. See `:h hidden` for more details
-set shellcmdflag=-ic        " Make vim shell (:!) behave like commandprompt
+set shellcmdflag=-c        " Make vim shell (:!) behave like commandprompt
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
 
 exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 filetype off
@@ -45,8 +46,9 @@ call vundle#begin()
   Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'justinmk/vim-syntax-extra'
   Plugin 'terryma/vim-multiple-cursors'
+  Plugin 'kchmck/vim-coffee-script'
+  Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()
-
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -62,11 +64,15 @@ let g:airline_theme='badwolf'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_section_y = "%{strlen(&ft)?&ft:'none'}"
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#displayed_head_limit = 10
 let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=1
 let g:ctrlp_show_hidden=1
 let g:ackprg = 'ag --column'
 let g:syntastic_check_on_open=1
+let g:mustache_abbreviations = 1
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 filetype on
 filetype plugin on
@@ -89,26 +95,32 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap <leader>vs :e ~/github/dotfiles/vimrc<CR>
+nnoremap <leader>vs :e ~/dotfiles/vimrc<CR>
 nnoremap <leader>1 :!
 nnoremap ; :
-nnoremap <C-n> :NERDTree<CR>
+nnoremap <leader>n :NERDTree<CR>
+nnoremap <leader>b obinding.pry<ESC>
+nnoremap <leader>B Obinding.pry<ESC>
 nnoremap <leader>TS :%s/\s\+$//<CR>
 nnoremap <leader>fi mzgg=G'z
 nnoremap <leader>r :w !sudo tee % <CR> " save the files using sudo
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+nnoremap <leader>bd :bp<cr>:bd #<cr>
+nnoremap <leader>v gg V G
+"nnoremap <C-j> :m .+1<CR>==
+"nnoremap <C-k> :m .-2<CR>==
+"
+"inoremap <C-j> <Esc>:m .+1<CR>==gi
+"inoremap <C-k> <Esc>:m .-2<CR>==gi
+"
+"vnoremap <C-j> :m '>+1<CR>gv=gv
+"vnoremap <C-k> :m '<-2<CR>gv=gv
 
 nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
-nmap <leader>g :G
-nmap <leader>G :Git 
+nmap <leader>st :Gstatus<CR>
+nmap <leader>di :Gdiff<CR>
+nmap <leader>bl :Gblame<CR>
+nmap <leader>g :Git 
 nmap <leader>a :Ack 
 map <leader>s :source ~/.vimrc<CR>
 
@@ -118,7 +130,7 @@ map <leader>s :source ~/.vimrc<CR>
 "map <Leader>a :call RunAllSpecs()<CR>
 
 "let g:vim_markdown_folding_disbled=1 " Markdown
-"let javaScript_fold=1                " Javascript
+let javaScript_fold=1                " Javascript
 "let perl_fold=1                      " Perl
 "let php_folding=1                    " PHP
 "let r_syntax_folding=1               " R
