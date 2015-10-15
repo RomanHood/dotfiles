@@ -98,7 +98,9 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>vs :e ~/dotfiles/vimrc<CR>
 nnoremap <leader>1 :!
 nnoremap ; :
-nnoremap <leader>n :NERDTree<CR>
+nnoremap <leader>cd :cd 
+nnoremap <leader>p :pwd<CR>
+nnoremap <leader>] :NERDTree<CR>
 nnoremap <leader>b obinding.pry<ESC>
 nnoremap <leader>B Obinding.pry<ESC>
 nnoremap <leader>TS :%s/\s\+$//<CR>

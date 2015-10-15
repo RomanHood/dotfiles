@@ -112,6 +112,10 @@ export EDITOR=vim
 
 # My Aliasez
 alias oo='open -a /Applications/OpenOffice.org.app'
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
+alias gc='git checkout'
 alias chrome='open -a /Applications/Google\ Chrome.app'
 alias glade='open -a /Applications/Glade.app'
 alias prev='open -a /Applications/Preview.app'
