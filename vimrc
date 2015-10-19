@@ -17,7 +17,7 @@ set splitright
 set encoding=utf-8
 set hidden                  " My preference with using buffers. See `:h hidden` for more details
 set shellcmdflag=-c        " Make vim shell (:!) behave like commandprompt
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/* 
 
 exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 filetype off
