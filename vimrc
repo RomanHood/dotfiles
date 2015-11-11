@@ -131,15 +131,15 @@ map <leader>s :source ~/.vimrc<CR>
 "map <Leader>p :call RunLastSpec()<CR>
 "map <Leader>a :call RunAllSpecs()<CR>
 
-"let g:vim_markdown_folding_disbled=1 " Markdown
+let g:vim_markdown_folding_disbled=1 " Markdown
 let javaScript_fold=1                " Javascript
-"let perl_fold=1                      " Perl
-"let php_folding=1                    " PHP
-"let r_syntax_folding=1               " R
-"let ruby_fold=1                      " Ruby
-"let sh_fold_enabled=1                " sh
-"let vimsyn_foldings='af'             " Vim script
-"let xml_syntax_folding=1             " XML
+let perl_fold=1                      " Perl
+let php_folding=1                    " PHP
+let r_syntax_folding=1               " R
+let ruby_fold=1                      " Ruby
+let sh_fold_enabled=1                " sh
+let vimsyn_foldings='af'             " Vim script
+let xml_syntax_folding=1             " XML
 "let &colorcolumn=join(range(81,999),",")
 let &colorcolumn=81
 
