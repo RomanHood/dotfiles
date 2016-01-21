@@ -15,6 +15,14 @@ function ci() {
   builtin cd ${1:-$HOME} && ls
 }
 
+function .m() {
+  cd ~/.tmuxinator && vim "$1".yml
+}
+
+function gcb() {
+  git checkout $(git branch | grep $1)
+}
+
 function c_functions() {
   grep -E "^[a-z]+\s+[a-z_A-Z,]+\([a-z \*A-Z_,]+\)" $@ | sort
 }
@@ -116,6 +124,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gl='git log'
 alias gc='git checkout'
+alias gf='git fetch'
 alias chrome='open -a /Applications/Google\ Chrome.app'
 alias glade='open -a /Applications/Glade.app'
 alias prev='open -a /Applications/Preview.app'
@@ -129,6 +138,7 @@ alias tmuxinator="TERM=screen-256color-bce tmuxinator"
 alias mux="TERM=screen-256color-bce mux"
 alias tl="tmux list-sessions"
 alias ts="mux start"
+alias panes='tmux list-windows'
 alias tk="tmux kill-session -t"
 alias ta="tmux attach -t"
 alias tlw="tmux list-windows"
@@ -144,3 +154,4 @@ alias ll="ls -alh"
 PATH=$PATH:$HOME/.rvm/bin
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_79)

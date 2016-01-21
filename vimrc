@@ -25,6 +25,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
   Plugin 'gmarik/Vundle.vim'
   Plugin 'tpope/vim-fugitive'
+  Plugin 'vim-utils/vim-man'
+  Plugin 'tpope/vim-commentary'
+  Plugin 'tpope/vim-rails'
   Plugin 'L9'
   Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
   Plugin 'git://git.wincent.com/command-t.git'
