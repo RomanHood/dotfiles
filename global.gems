@@ -11,11 +11,14 @@ ember-source
 ember-rails
 guard
 guard-rspec
+pg
 pry
 pry-nav
 pry-rails
 rails
+rails-api
 rspec
+rspec-rails
 rb-fsevent
 rb-notify
 spring

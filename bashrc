@@ -118,39 +118,7 @@ export HISTSIZE=1000000
 export HISTFILESIZE=1000000
 export EDITOR=vim
 
-# My Aliasez
-alias oo='open -a /Applications/OpenOffice.org.app'
-alias gs='git status'
-alias gd='git diff'
-alias gl='git log'
-alias gc='git checkout'
-alias gf='git fetch'
-alias chrome='open -a /Applications/Google\ Chrome.app'
-alias glade='open -a /Applications/Glade.app'
-alias prev='open -a /Applications/Preview.app'
-alias lh="clear; ls -larth"
-alias v='vim .'
-alias dot='vim ~/.*'
-alias vu='vagrant up'
-alias vsh='vagrant ssh'
-alias tmux="TERM=screen-256color-bce tmux"
-alias tmuxinator="TERM=screen-256color-bce tmuxinator"
-alias mux="TERM=screen-256color-bce mux"
-alias tl="tmux list-sessions"
-alias ts="mux start"
-alias panes='tmux list-windows'
-alias tk="tmux kill-session -t"
-alias ta="tmux attach -t"
-alias tlw="tmux list-windows"
-alias ms="mux start"
-alias doc="docker-compose"
-alias cp="cp -v"
-alias mv="mv -v"
-alias rm="rm -v"
-alias ls="ls -G"
-alias cls="clear; ls"
-alias ll="ls -alh"
-
+source "$HOME/dotfiles/aliases"
 PATH=$PATH:$HOME/.rvm/bin
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
