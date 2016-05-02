@@ -1,0 +1,30 @@
+# My Aliasez
+alias chrome='open -a /Applications/Google\ Chrome.app'
+alias cls="clear; ls"
+alias cp="cp -v"
+alias doc="docker-compose"
+alias dot='vim ~/.*'
+alias gc='git checkout'
+alias gd='git diff'
+alias gl='git log'
+alias glade='open -a /Applications/Glade.app'
+alias gs='git status'
+alias lh="clear; ls -larth"
+alias ll="ls -alh"
+alias ls="ls -G"
+alias mux="TERM=screen-256color-bce mux"
+alias ms="mux start"
+alias mv="mv -v"
+alias oo='open -a /Applications/OpenOffice.org.app'
+alias prev='open -a /Applications/Preview.app'
+alias rm="rm -v"
+alias ta="tmux attach -t"
+alias tk="tmux kill-session -t"
+alias tl="tmux list-sessions"
+alias tlw="tmux list-windows"
+alias tmux="TERM=screen-256color-bce tmux"
+alias tmuxinator="TERM=screen-256color-bce tmuxinator"
+alias ts="mux start"
+alias v='vim .'
+alias vsh='vagrant ssh'
+alias vu='vagrant up'
