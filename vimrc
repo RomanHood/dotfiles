@@ -1,3 +1,4 @@
+set paste
 set nocompatible
 set laststatus=2
 set ttimeoutlen=50
@@ -6,9 +7,25 @@ set shiftwidth=2
 set softtabstop=2
 set noswapfile              " No swap files, use version control instead
 set number                  " Show line numbers
+
 set foldmethod=syntax       " Folding
-set foldcolumn=1            " Folding
-set foldlevelstart=20       " Folding
+function! MyFoldText()
+    let nl = v:foldend - v:foldstart + 1
+    let txt = getline(v:foldstart) . ': ' . nl . ' lines'
+    return txt
+endfunction
+" let g:vim_markdown_folding_disbled=1 " Markdown
+" let javaScript_fold=1                " Javascript
+" let perl_fold=1                      " Perl
+" let php_folding=1                    " PHP
+" let r_syntax_folding=1               " R
+" let ruby_fold=1                      " Ruby
+" let sh_fold_enabled=1                " sh
+" let vimsyn_foldings='af'             " Vim script
+" let xml_syntax_folding=1             " XML
+"let &colorcolumn=join(range(81,999),",")
+
+set foldtext=MyFoldText()
 set list
 set t_Co=256
 set background=dark
@@ -16,7 +33,7 @@ set splitbelow              " Natural feeling window splits
 set splitright
 set encoding=utf-8
 set hidden                  " My preference with using buffers. See `:h hidden` for more details
-set shellcmdflag=-c        " Make vim shell (:!) behave like commandprompt
+set shellcmdflag=-c         " Make vim shell (:!) behave like commandprompt
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/* 
 
 exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
@@ -40,6 +57,7 @@ call vundle#begin()
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/syntastic'
   Plugin 'bling/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
   Plugin 'flazz/vim-colorschemes'
   Plugin 'chrisbra/csv.vim'
   Plugin 'thoughtbot/vim-rspec'
@@ -120,30 +138,14 @@ nnoremap <leader>v gg V G
 "vnoremap <C-j> :m '>+1<CR>gv=gv
 "vnoremap <C-k> :m '<-2<CR>gv=gv
 
-nmap <leader>l :bnext<CR>
-nmap <leader>h :bprevious<CR>
-nmap <leader>st :Gstatus<CR>
-nmap <leader>di :Gdiff<CR>
-nmap <leader>bl :Gblame<CR>
-nmap <leader>g :Git 
-nmap <leader>a :Ack 
-map <leader>s :source ~/.vimrc<CR>
-
-" vim-rspec mappings
-"map <Leader>t :call RunCurrentSpecFile()<CR>
-"map <Leader>p :call RunLastSpec()<CR>
-"map <Leader>a :call RunAllSpecs()<CR>
-
-let g:vim_markdown_folding_disbled=1 " Markdown
-let javaScript_fold=1                " Javascript
-let perl_fold=1                      " Perl
-let php_folding=1                    " PHP
-let r_syntax_folding=1               " R
-let ruby_fold=1                      " Ruby
-let sh_fold_enabled=1                " sh
-let vimsyn_foldings='af'             " Vim script
-let xml_syntax_folding=1             " XML
-"let &colorcolumn=join(range(81,999),",")
+nno <leader>l :bnext<CR>
+nno <leader>h :bprevious<CR>
+nno <leader>st :Gstatus<CR>
+nno <leader>di :Gdiff<CR>
+nno <leader>bl :Gblame<CR>
+nno <leader>g :Git 
+nno <leader>a :Ack 
+nno <leader>s :source ~/.vimrc<CR>
 let &colorcolumn=81
 
 colorscheme inkpot

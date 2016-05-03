@@ -117,6 +117,7 @@ export GREP_COLOR='07;38;5;74'
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
 export EDITOR=vim
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
 source "$HOME/dotfiles/aliases"
 PATH=$PATH:$HOME/.rvm/bin
