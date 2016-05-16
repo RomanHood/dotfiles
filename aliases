@@ -12,7 +12,7 @@ alias gs='git status'
 alias lh="clear; ls -larth"
 alias ll="ls -alh"
 alias ls="ls -G"
-alias mux="TERM=screen-256color-bce mux"
+alias mux="TERM=screen-256color-bce tmuxinator"
 alias ms="mux start"
 alias mv="mv -v"
 alias oo='open -a /Applications/OpenOffice.org.app'

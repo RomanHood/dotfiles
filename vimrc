@@ -9,6 +9,7 @@ set noswapfile              " No swap files, use version control instead
 set number                  " Show line numbers
 
 set foldmethod=syntax       " Folding
+set foldlevelstart=1        " Folding
 function! MyFoldText()
     let nl = v:foldend - v:foldstart + 1
     let txt = getline(v:foldstart) . ': ' . nl . ' lines'
@@ -23,16 +24,16 @@ endfunction
 " let sh_fold_enabled=1                " sh
 " let vimsyn_foldings='af'             " Vim script
 " let xml_syntax_folding=1             " XML
-"let &colorcolumn=join(range(81,999),",")
-
+" let &colorcolumn=join(range(81,999),",")
 set foldtext=MyFoldText()
+set fillchars="fold: "
 set list
 set t_Co=256
 set background=dark
 set splitbelow              " Natural feeling window splits
 set splitright
 set encoding=utf-8
-set hidden                  " My preference with using buffers. See `:h hidden` for more details
+" set hidden                  " My preference with using buffers. See `:h hidden` for more details
 set shellcmdflag=-c         " Make vim shell (:!) behave like commandprompt
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/* 
 
@@ -94,6 +95,7 @@ let g:ackprg = 'ag --column'
 let g:syntastic_check_on_open=1
 let g:mustache_abbreviations = 1
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let &colorcolumn=81
 
 filetype on
 filetype plugin on
@@ -146,6 +148,5 @@ nno <leader>bl :Gblame<CR>
 nno <leader>g :Git 
 nno <leader>a :Ack 
 nno <leader>s :source ~/.vimrc<CR>
-let &colorcolumn=81
 
 colorscheme inkpot
