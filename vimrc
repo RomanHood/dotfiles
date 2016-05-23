@@ -7,6 +7,7 @@ set shiftwidth=2
 set softtabstop=2
 set noswapfile              " No swap files, use version control instead
 set number                  " Show line numbers
+set nowrap
 
 set foldmethod=syntax       " Folding
 set foldlevelstart=1        " Folding
@@ -40,9 +41,11 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*
 exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/snippets/
 call vundle#begin()
   Plugin 'gmarik/Vundle.vim'
   Plugin 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-bundler'
   Plugin 'vim-utils/vim-man'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-rails'
@@ -62,6 +65,7 @@ call vundle#begin()
   Plugin 'flazz/vim-colorschemes'
   Plugin 'chrisbra/csv.vim'
   Plugin 'thoughtbot/vim-rspec'
+  Plugin 'Shougo/vimproc.vim'
   Plugin 'Shougo/vimshell.vim'
   Plugin 'sjl/gundo.vim'
   Plugin 'jgdavey/tslime.vim'
@@ -70,6 +74,13 @@ call vundle#begin()
   Plugin 'terryma/vim-multiple-cursors'
   Plugin 'kchmck/vim-coffee-script'
   Plugin 'mustache/vim-mustache-handlebars'
+  Plugin 'vim-ruby/vim-ruby'
+  Plugin 'ervandew/supertab'
+  Plugin 'tpope/vim-endwise'
+  Plugin 'MarcWeber/vim-addon-mw-utils'
+  Plugin 'tomtom/tlib_vim'
+  Plugin 'garbas/vim-snipmate'
+  Plugin 'honza/vim-snippets'
 call vundle#end()
 
 if !exists('g:airline_symbols')
@@ -82,7 +93,7 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_section_y=""
 let g:airline_powerline_fonts=0
-let g:airline_theme='badwolf'
+let g:airline_theme='jellybeans'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_section_y = "%{strlen(&ft)?&ft:'none'}"
@@ -107,7 +118,6 @@ no <down> <Nop>
 no <left> <Nop>
 no <up> <Nop>
 no <right> <Nop>
-
 ino <down> <Nop>
 ino <left> <Nop>
 ino <up>   <Nop>
@@ -121,7 +131,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>vs :e ~/dotfiles/vimrc<CR>
 nnoremap <leader>1 :!
 nnoremap ; :
-nnoremap <leader>cd :cd 
+nnoremap <leader>cd :cd
 nnoremap <leader>p :pwd<CR>
 nnoremap <leader>] :NERDTree<CR>
 nnoremap <leader>b obinding.pry<ESC>
@@ -140,13 +150,28 @@ nnoremap <leader>v gg V G
 "vnoremap <C-j> :m '>+1<CR>gv=gv
 "vnoremap <C-k> :m '<-2<CR>gv=gv
 
-nno <leader>l :bnext<CR>
-nno <leader>h :bprevious<CR>
-nno <leader>st :Gstatus<CR>
-nno <leader>di :Gdiff<CR>
-nno <leader>bl :Gblame<CR>
-nno <leader>g :Git 
-nno <leader>a :Ack 
-nno <leader>s :source ~/.vimrc<CR>
+nno <leader>a   :Ack | "Do stuff
+nno <leader>bi  :Bundle install<CR>
+nno <leader>bo  :Bvsplit | "leave a space
+nno <leader>bu  :Bundle update<CR>
+nno <leader>g   :Git | "leave a space
+nno <leader>bl  :Gblame<CR>
+nno <leader>gbr  :Git branch<CR>
+nno <leader>gc  :Gcommit<CR>
+nno <leader>gd  :Gdiff<CR>
+nno <leader>gs  :Gstatus<CR>
+nno <leader>gl  :Glog<CR>
+nno <leader>gp  :Git push | "leave a space
+nno <leader>gt  :Git tree<CR>
+nno <leader>G   :Git! | "leave a space
+nno <leader>h   :bprevious<CR>
+nno <leader>l   :bnext<CR>
+nno <leader>pll :Gpull<CR>
+nno <leader>psh :Gpull<CR>
+nno <leader>s   :source ~/.vimrc<CR>
 
-colorscheme inkpot
+" colorscheme candycode
+" colorscheme mophiaDark
+" colorscheme inkpot
+hi Folded ctermfg=red
+hi Folded ctermbg=black
