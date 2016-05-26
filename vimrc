@@ -167,7 +167,7 @@ nno <leader>G   :Git! | "leave a space
 nno <leader>h   :bprevious<CR>
 nno <leader>l   :bnext<CR>
 nno <leader>pll :Gpull<CR>
-nno <leader>psh :Gpull<CR>
+nno <leader>psh :Gpush<CR>
 nno <leader>s   :source ~/.vimrc<CR>
 
 " colorscheme candycode
