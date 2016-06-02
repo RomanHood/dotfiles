@@ -1,47 +1,37 @@
-set paste
-set nocompatible
-set laststatus=2
-set ttimeoutlen=50
-set expandtab               " Indentation
-set shiftwidth=2
-set softtabstop=2
-set noswapfile              " No swap files, use version control instead
-set number                  " Show line numbers
-set nowrap
-
-set foldmethod=syntax       " Folding
-set foldlevelstart=1        " Folding
 function! MyFoldText()
     let nl = v:foldend - v:foldstart + 1
     let txt = getline(v:foldstart) . ': ' . nl . ' lines'
     return txt
 endfunction
-" let g:vim_markdown_folding_disbled=1 " Markdown
-" let javaScript_fold=1                " Javascript
-" let perl_fold=1                      " Perl
-" let php_folding=1                    " PHP
-" let r_syntax_folding=1               " R
-" let ruby_fold=1                      " Ruby
-" let sh_fold_enabled=1                " sh
-" let vimsyn_foldings='af'             " Vim script
-" let xml_syntax_folding=1             " XML
-" let &colorcolumn=join(range(81,999),",")
-set foldtext=MyFoldText()
-set fillchars="fold: "
-set list
-set t_Co=256
+
 set background=dark
+set encoding=utf-8
+set expandtab               " Indentation
+set fillchars="fold: "
+set foldtext=MyFoldText()
+set foldmethod=syntax       " Folding
+set foldlevelstart=1        " Folding
+set laststatus=2
+set list
+set paste
+set nocompatible
+set noswapfile              " No swap files, use version control instead
+set nowrap
+set number                  " Show line numbers
+set rtp+=~/.vim/snippets/
+set shellcmdflag=-c         " Make vim shell (:!) behave like commandprompt
+set shiftwidth=2
 set splitbelow              " Natural feeling window splits
 set splitright
-set encoding=utf-8
-" set hidden                  " My preference with using buffers. See `:h hidden` for more details
-set shellcmdflag=-c         " Make vim shell (:!) behave like commandprompt
+set softtabstop=2
+set ttimeoutlen=50
+set t_Co=256
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/* 
 
 exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
+
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/.vim/snippets/
 call vundle#begin()
   Plugin 'gmarik/Vundle.vim'
   Plugin 'tpope/vim-fugitive'
@@ -118,60 +108,51 @@ no <down> <Nop>
 no <left> <Nop>
 no <up> <Nop>
 no <right> <Nop>
+
 ino <down> <Nop>
 ino <left> <Nop>
 ino <up>   <Nop>
 ino <right> <Nop>
 
-" Split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-nnoremap <leader>vs :e ~/dotfiles/vimrc<CR>
-nnoremap <leader>1 :!
-nnoremap ; :
-nnoremap <leader>cd :cd
-nnoremap <leader>p :pwd<CR>
-nnoremap <leader>] :NERDTree<CR>
-nnoremap <leader>b obinding.pry<ESC>
-nnoremap <leader>B Obinding.pry<ESC>
-nnoremap <leader>TS :%s/\s\+$//<CR>
-nnoremap <leader>fi mzgg=G'z
-nnoremap <leader>r :w !sudo tee % <CR> " save the files using sudo
-nnoremap <leader>bd :bp<cr>:bd #<cr>
-nnoremap <leader>v gg V G
-"nnoremap <C-j> :m .+1<CR>==
-"nnoremap <C-k> :m .-2<CR>==
-"
-"inoremap <C-j> <Esc>:m .+1<CR>==gi
-"inoremap <C-k> <Esc>:m .-2<CR>==gi
-"
-"vnoremap <C-j> :m '>+1<CR>gv=gv
-"vnoremap <C-k> :m '<-2<CR>gv=gv
-
+nno ; :
+nno <C-J> <C-W><C-J> " Split navigation
+nno <C-K> <C-W><C-K> " Split navigation
+nno <C-L> <C-W><C-L> " Split navigation
+nno <C-H> <C-W><C-H> " Split navigation
 nno <leader>a   :Ack | "Do stuff
+nno <leader>b   obinding.pry<ESC>
+nno <leader>B   Obinding.pry<ESC>
+nno <leader>bd  :bp<cr>:bd #<cr>
 nno <leader>bi  :Bundle install<CR>
+nno <leader>bl  :Gblame<CR>
 nno <leader>bo  :Bvsplit | "leave a space
 nno <leader>bu  :Bundle update<CR>
+nno <leader>cd  :cd
+nno <leader>fi  mzgg=G'z
 nno <leader>g   :Git | "leave a space
-nno <leader>bl  :Gblame<CR>
-nno <leader>gbr  :Git branch<CR>
+nno <leader>G   :Git! | "leave a space
+nno <leader>gbr :Git branch<CR>
 nno <leader>gc  :Gcommit<CR>
 nno <leader>gd  :Gdiff<CR>
 nno <leader>gs  :Gstatus<CR>
 nno <leader>gl  :Glog<CR>
 nno <leader>gp  :Git push | "leave a space
 nno <leader>gt  :Git tree<CR>
-nno <leader>G   :Git! | "leave a space
 nno <leader>h   :bprevious<CR>
 nno <leader>l   :bnext<CR>
+nno <leader>p   :pwd<CR>
 nno <leader>pll :Gpull<CR>
 nno <leader>psh :Gpush<CR>
+nno <leader>r   :w !sudo tee % <CR> " save the files using sudo
 nno <leader>s   :source ~/.vimrc<CR>
+nno <leader>TS  :%s/\s\+$//<CR>
+nno <leader>v   gg V G
+nno <leader>vs  :e ~/dotfiles/vimrc<CR>
+nno <leader>1   :!
+nno <leader>]   :NERDTree<CR>
 
 " colorscheme candycode
 " colorscheme mophiaDark
-" colorscheme inkpot
+colorscheme inkpot
 hi Folded ctermfg=red
 hi Folded ctermbg=black
