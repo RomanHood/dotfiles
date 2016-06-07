@@ -1,76 +1,73 @@
+set nocompatible           " Set this first for all further settings
+
 function! MyFoldText()
-    let nl = v:foldend - v:foldstart + 1
-    let txt = getline(v:foldstart) . ': ' . nl . ' lines'
-    return txt
+  let nl = v:foldend - v:foldstart + 1
+  let txt = getline(v:foldstart) . ': ' . nl . ' lines'
+  return txt
 endfunction
 
-set background=dark
-set encoding=utf-8
-set expandtab               " Indentation
-set fillchars="fold: "
-set foldtext=MyFoldText()
-set foldmethod=syntax       " Folding
-set foldlevelstart=1        " Folding
-set laststatus=2
-set list
-set paste
-set nocompatible
-set noswapfile              " No swap files, use version control instead
-set nowrap
-set number                  " Show line numbers
-set rtp+=~/.vim/snippets/
-set shellcmdflag=-c         " Make vim shell (:!) behave like commandprompt
-set shiftwidth=2
-set splitbelow              " Natural feeling window splits
-set splitright
-set softtabstop=2
-set ttimeoutlen=50
-set t_Co=256
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/* 
+set background=dark        " Use clrs good for a dark bg. Does NOT set bg clr.
+set encoding=utf-8         " Set character encoding used in Vim.
+set expandtab              " Insert mode uses spaces for <Tab> key.
+set fillchars="fold: "     " Fill fold lines with empty spaces.
+set foldtext=MyFoldText()  " Show beginning text followed by fold length.
+set foldmethod=syntax      " Find folds based on filetype syntax
+set foldlevelstart=1       " Default fold level, folds 1 level deep are closed
+set laststatus=2           " Every pane has a status line.
+set list                   " Turn on listchars, symbolize certain characters.
+set noswapfile             " No swap files, use version control instead.
+set nowrap                 " Don't wrap long lines, scroll off screen instead.
+set number                 " Show line numbers.
+set shellcmdflag=-c        " Make vim shell (:!) behave like commandprompt.
+set shiftwidth=2           " Number of spaces to use for >> and <<.
+set splitbelow             " Natural feeling window splits.
+set splitright             " Natural feeling window splits.
+set softtabstop=2          " Number of spaces to use for <Tab> in Insert mode.
+set timeoutlen=400         " Number of milliseconds to resolve key mappings.
+set t_Co=256               " Number of colors.
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*
 
 exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 
-filetype off
+filetype off               " Needed for plugin initialization
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-  Plugin 'gmarik/Vundle.vim'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'tpope/vim-bundler'
-  Plugin 'vim-utils/vim-man'
-  Plugin 'tpope/vim-commentary'
-  Plugin 'tpope/vim-rails'
-  Plugin 'L9'
-  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-  Plugin 'git://git.wincent.com/command-t.git'
-  Plugin 'jelera/vim-javascript-syntax'
-  Plugin 'pangloss/vim-javascript'
-  Plugin 'nathanaelkane/vim-indent-guides'
-  Plugin 'Raimondi/delimitMate'
-  Plugin 'kien/ctrlp.vim'
-  Plugin 'mileszs/ack.vim'
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'scrooloose/syntastic'
-  Plugin 'bling/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
-  Plugin 'flazz/vim-colorschemes'
-  Plugin 'chrisbra/csv.vim'
-  Plugin 'thoughtbot/vim-rspec'
-  Plugin 'Shougo/vimproc.vim'
-  Plugin 'Shougo/vimshell.vim'
-  Plugin 'sjl/gundo.vim'
-  Plugin 'jgdavey/tslime.vim'
-  Plugin 'christoomey/vim-tmux-navigator'
-  Plugin 'justinmk/vim-syntax-extra'
-  Plugin 'terryma/vim-multiple-cursors'
-  Plugin 'kchmck/vim-coffee-script'
-  Plugin 'mustache/vim-mustache-handlebars'
-  Plugin 'vim-ruby/vim-ruby'
-  Plugin 'ervandew/supertab'
-  Plugin 'tpope/vim-endwise'
-  Plugin 'MarcWeber/vim-addon-mw-utils'
-  Plugin 'tomtom/tlib_vim'
-  Plugin 'garbas/vim-snipmate'
-  Plugin 'honza/vim-snippets'
+Plugin 'chrisbra/csv.vim'
+Plugin 'christoomey/vim-tmux-navigator'     " Vim and tmux pane navigation.
+Plugin 'ervandew/supertab'                  " Insert mode completion.
+Plugin 'flazz/vim-colorschemes'             " Library of colorschemes.
+Plugin 'garbas/vim-snipmate'                " Snippet engine for vim-snippets.
+Plugin 'gmarik/Vundle.vim'                  " Plugin manager, using now.
+Plugin 'honza/vim-snippets'                 " Snippet files uses, vim-snipmate.
+Plugin 'jelera/vim-javascript-syntax'       " Enhanced sytax for javascript.
+Plugin 'jgdavey/tslime.vim'                 " Send text from buffer to tmux session.
+Plugin 'justinmk/vim-syntax-extra'          " Enhanced sytax definitions for C.
+Plugin 'kchmck/vim-coffee-script'           " CS syntax, indenting, compiling.
+Plugin 'kien/ctrlp.vim'                     " File fuzzyfinder.
+Plugin 'L9'                                 " General utility functions.
+Plugin 'MarcWeber/vim-addon-mw-utils'       " Dependency of vim-snipmate.
+Plugin 'mileszs/ack.vim'                    " The Silver Searcher / ag.
+Plugin 'mustache/vim-mustache-handlebars'   " Mustache/hbs syntax & abbrevs.
+Plugin 'nathanaelkane/vim-indent-guides'    " Highlight indented column space.
+Plugin 'pangloss/vim-javascript'            " Javascript syntax, indenting.
+Plugin 'Raimondi/delimitMate'               " Insert mode auto-closing quotes, parens, brackets.
+Plugin 'scrooloose/nerdtree'                " Visual file navigation.
+Plugin 'scrooloose/syntastic'               " Syntax checker, displays errors.
+Plugin 'Shougo/vimproc.vim'
+" Plugin 'Shougo/vimshell.vim'              " Interactive shell in a buffer.
+" Plugin 'sjl/gundo.vim'                    " Visualize undo history.
+Plugin 'terryma/vim-multiple-cursors'       " Sublime-style multiple selection.
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-utils/vim-man'
+Plugin 'vim-ruby/vim-ruby'                  " Ruby configuration files.
 call vundle#end()
 
 if !exists('g:airline_symbols')
@@ -90,7 +87,7 @@ let g:airline_section_y = "%{strlen(&ft)?&ft:'none'}"
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#displayed_head_limit = 10
 let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=1
+let g:NERDTreeShowHidden=1
 let g:ctrlp_show_hidden=1
 let g:ackprg = 'ag --column'
 let g:syntastic_check_on_open=1
@@ -98,9 +95,7 @@ let g:mustache_abbreviations = 1
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let &colorcolumn=81
 
-filetype on
-filetype plugin on
-filetype indent on
+filetype indent plugin on
 syntax on                   " Colors
 
 " Unmap arrow keys
@@ -115,28 +110,25 @@ ino <up>   <Nop>
 ino <right> <Nop>
 
 nno ; :
-nno <C-J> <C-W><C-J> " Split navigation
-nno <C-K> <C-W><C-K> " Split navigation
-nno <C-L> <C-W><C-L> " Split navigation
-nno <C-H> <C-W><C-H> " Split navigation
-nno <leader>a   :Ack | "Do stuff
+nno <leader>a   :Ack | " leave a space
 nno <leader>b   obinding.pry<ESC>
 nno <leader>B   Obinding.pry<ESC>
 nno <leader>bd  :bp<cr>:bd #<cr>
-nno <leader>bi  :Bundle install<CR>
+nno <leader>bi  :BundleInstall<CR>
 nno <leader>bl  :Gblame<CR>
-nno <leader>bo  :Bvsplit | "leave a space
-nno <leader>bu  :Bundle update<CR>
+nno <leader>bo  :Bvsplit | " leave a space
+nno <leader>bu  :BundleUpdate<CR>
 nno <leader>cd  :cd
+nno <leader>ch  :Git checkout | " leave a space
 nno <leader>fi  mzgg=G'z
 nno <leader>g   :Git | "leave a space
 nno <leader>G   :Git! | "leave a space
-nno <leader>gbr :Git branch<CR>
+nno <leader>gb  :Git branch<CR>
 nno <leader>gc  :Gcommit<CR>
 nno <leader>gd  :Gdiff<CR>
+nno <leader>gl  :Git log<CR>
+nno <leader>gp  :Git push | " leave a space
 nno <leader>gs  :Gstatus<CR>
-nno <leader>gl  :Glog<CR>
-nno <leader>gp  :Git push | "leave a space
 nno <leader>gt  :Git tree<CR>
 nno <leader>h   :bprevious<CR>
 nno <leader>l   :bnext<CR>
