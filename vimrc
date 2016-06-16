@@ -73,7 +73,6 @@ call vundle#end()
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_powerline_fonts=0
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_symbols.branch = '⎇'
@@ -85,7 +84,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_section_y = "%{strlen(&ft)?&ft:'none'}"
 let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#displayed_head_limit = 10
+let g:airline#extensions#branch#displayed_head_limit = 50
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeShowHidden=1
 let g:ctrlp_show_hidden=1
@@ -114,10 +113,10 @@ nno <leader>a   :Ack | " leave a space
 nno <leader>b   obinding.pry<ESC>
 nno <leader>B   Obinding.pry<ESC>
 nno <leader>bd  :bp<cr>:bd #<cr>
-nno <leader>bi  :BundleInstall<CR>
+nno <leader>bi  :!bundle install<CR>
 nno <leader>bl  :Gblame<CR>
 nno <leader>bo  :Bvsplit | " leave a space
-nno <leader>bu  :BundleUpdate<CR>
+nno <leader>bu  :!bundle update<CR>
 nno <leader>cd  :cd
 nno <leader>ch  :Git checkout | " leave a space
 nno <leader>fi  mzgg=G'z
