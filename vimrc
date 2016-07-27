@@ -32,42 +32,42 @@ exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 filetype off               " Needed for plugin initialization
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'chrisbra/csv.vim'
-Plugin 'christoomey/vim-tmux-navigator'     " Vim and tmux pane navigation.
-Plugin 'ervandew/supertab'                  " Insert mode completion.
-Plugin 'flazz/vim-colorschemes'             " Library of colorschemes.
-Plugin 'garbas/vim-snipmate'                " Snippet engine for vim-snippets.
-Plugin 'gmarik/Vundle.vim'                  " Plugin manager, using now.
-Plugin 'honza/vim-snippets'                 " Snippet files uses, vim-snipmate.
-Plugin 'jelera/vim-javascript-syntax'       " Enhanced sytax for javascript.
-Plugin 'jgdavey/tslime.vim'                 " Send text from buffer to tmux session.
-Plugin 'justinmk/vim-syntax-extra'          " Enhanced sytax definitions for C.
-Plugin 'kchmck/vim-coffee-script'           " CS syntax, indenting, compiling.
-Plugin 'kien/ctrlp.vim'                     " File fuzzyfinder.
-Plugin 'L9'                                 " General utility functions.
-Plugin 'MarcWeber/vim-addon-mw-utils'       " Dependency of vim-snipmate.
-Plugin 'mileszs/ack.vim'                    " The Silver Searcher / ag.
-Plugin 'mustache/vim-mustache-handlebars'   " Mustache/hbs syntax & abbrevs.
-Plugin 'nathanaelkane/vim-indent-guides'    " Highlight indented column space.
-Plugin 'pangloss/vim-javascript'            " Javascript syntax, indenting.
-Plugin 'Raimondi/delimitMate'               " Insert mode auto-closing quotes, parens, brackets.
-Plugin 'scrooloose/nerdtree'                " Visual file navigation.
-Plugin 'scrooloose/syntastic'               " Syntax checker, displays errors.
-Plugin 'Shougo/vimproc.vim'
-" Plugin 'Shougo/vimshell.vim'              " Interactive shell in a buffer.
-" Plugin 'sjl/gundo.vim'                    " Visualize undo history.
-Plugin 'terryma/vim-multiple-cursors'       " Sublime-style multiple selection.
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tomtom/tlib_vim'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-utils/vim-man'
-Plugin 'vim-ruby/vim-ruby'                  " Ruby configuration files.
+  Plugin 'chrisbra/csv.vim'
+  Plugin 'christoomey/vim-tmux-navigator'     " Vim and tmux pane navigation.
+  Plugin 'ervandew/supertab'                  " Insert mode completion.
+  Plugin 'flazz/vim-colorschemes'             " Library of colorschemes.
+  Plugin 'garbas/vim-snipmate'                " Snippet engine for vim-snippets.
+  Plugin 'gmarik/Vundle.vim'                  " Plugin manager, using now.
+  Plugin 'honza/vim-snippets'                 " Snippet files uses, vim-snipmate.
+  Plugin 'jelera/vim-javascript-syntax'       " Enhanced sytax for javascript.
+  Plugin 'jgdavey/tslime.vim'                 " Send text from buffer to tmux session.
+  Plugin 'justinmk/vim-syntax-extra'          " Enhanced sytax definitions for C.
+  Plugin 'kchmck/vim-coffee-script'           " CS syntax, indenting, compiling.
+  Plugin 'kien/ctrlp.vim'                     " File fuzzyfinder.
+  Plugin 'L9'                                 " General utility functions.
+  Plugin 'MarcWeber/vim-addon-mw-utils'       " Dependency of vim-snipmate.
+  Plugin 'mileszs/ack.vim'                    " The Silver Searcher / ag.
+  Plugin 'mustache/vim-mustache-handlebars'   " Mustache/hbs syntax & abbrevs.
+  Plugin 'nathanaelkane/vim-indent-guides'    " Highlight indented column space.
+  Plugin 'pangloss/vim-javascript'            " Javascript syntax, indenting.
+  Plugin 'Raimondi/delimitMate'               " Insert mode auto-closing quotes, parens, brackets.
+  Plugin 'scrooloose/nerdtree'                " Visual file navigation.
+  Plugin 'scrooloose/syntastic'               " Syntax checker, displays errors.
+  Plugin 'Shougo/vimproc.vim'
+  " Plugin 'Shougo/vimshell.vim'              " Interactive shell in a buffer.
+  " Plugin 'sjl/gundo.vim'                    " Visualize undo history.
+  Plugin 'terryma/vim-multiple-cursors'       " Sublime-style multiple selection.
+  Plugin 'thoughtbot/vim-rspec'
+  Plugin 'tomtom/tlib_vim'
+  Plugin 'tpope/vim-bundler'
+  Plugin 'tpope/vim-endwise'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-commentary'
+  Plugin 'tpope/vim-rails'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'vim-utils/vim-man'
+  Plugin 'vim-ruby/vim-ruby'                  " Ruby configuration files.
 call vundle#end()
 
 if !exists('g:airline_symbols')
