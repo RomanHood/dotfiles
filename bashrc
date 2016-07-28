@@ -65,7 +65,7 @@ function clear_if () {
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; clear_if"
 export HISTCONTROL=ignoredups:erasedups
-export PS1="|$red\$(rvm current)$txtrst| $green\w$pink\$(parse_git_branch_or_tag) $green\n\u$yellow@$cyan\h => "
+export PS1="|\[$red\]\$(rvm current)\[$txtrst\]| \[$green\]\w\[$pink\]\$(parse_git_branch_or_tag) \[$green\]\n\u\[$yellow\]@\[$cyan\]\h => "
 export GREP_OPTIONS="-i --color=tty"
 export GREP_COLOR='07;38;5;74'
 export HISTSIZE=1000000
