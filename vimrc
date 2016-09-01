@@ -112,20 +112,24 @@ nno ; :
 nno <leader>a   :Ack | " leave a space
 nno <leader>b   obinding.pry<ESC>
 nno <leader>B   Obinding.pry<ESC>
+nno <leader>bf   :bfirst<CR>
+nno <leader>bl   :blast<CR>
 nno <leader>bd  :bp<cr>:bd #<cr>
 nno <leader>bi  :!bundle install<CR>
-nno <leader>bl  :Gblame<CR>
 nno <leader>bo  :Bvsplit | " leave a space
 nno <leader>bu  :!bundle update<CR>
 nno <leader>cd  :cd
 nno <leader>ch  :Git checkout | " leave a space
 nno <leader>fi  mzgg=G'z
-nno <leader>g   :Git | "leave a space
-nno <leader>G   :Git! | "leave a space
-nno <leader>gb  :Git branch<CR>
+nno <leader>g   :Git | " leave a space
+nno <leader>G   :Git! | " leave a space
+nno <leader>gbl  :Gblame<CR>
+nno <leader>gbr  :Git branch<CR>
 nno <leader>gc  :Gcommit<CR>
 nno <leader>gd  :Gdiff<CR>
+nno <leader>gf  :Gfetch<CR>
 nno <leader>gl  :Git log<CR>
+nno <leader>gm  :Gmerge  | " leave a speace
 nno <leader>gp  :Git push | " leave a space
 nno <leader>gs  :Gstatus<CR>
 nno <leader>gt  :Git tree<CR>
