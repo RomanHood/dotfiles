@@ -2,6 +2,7 @@
 alias chrome='open -a /Applications/Google\ Chrome.app'
 alias cls="clear; ls"
 alias cp="cp -v"
+alias dcr="docker-compose run --rm"
 alias doc="docker-compose"
 alias dot='vim ~/.*'
 alias gc='git checkout'

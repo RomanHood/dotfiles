@@ -6,12 +6,12 @@ function! MyFoldText()
   return txt
 endfunction
 
-set background=dark        " Use clrs good for a dark bg. Does NOT set bg clr.
+set background=dark        " Use colors good for a dark bg. Does NOT set bg clr.
 set encoding=utf-8         " Set character encoding used in Vim.
 set expandtab              " Insert mode uses spaces for <Tab> key.
 set fillchars="fold: "     " Fill fold lines with empty spaces.
 set foldtext=MyFoldText()  " Show beginning text followed by fold length.
-set foldmethod=syntax      " Find folds based on filetype syntax
+set foldmethod=syntax      " Find folds based on filetype syntax.
 set foldlevelstart=1       " Default fold level, folds 1 level deep are closed
 set laststatus=2           " Every pane has a status line.
 set list                   " Turn on listchars, symbolize certain characters.
@@ -33,41 +33,41 @@ filetype off               " Needed for plugin initialization
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
   Plugin 'chrisbra/csv.vim'
-  Plugin 'christoomey/vim-tmux-navigator'     " Vim and tmux pane navigation.
-  Plugin 'ervandew/supertab'                  " Insert mode completion.
-  Plugin 'flazz/vim-colorschemes'             " Library of colorschemes.
-  Plugin 'garbas/vim-snipmate'                " Snippet engine for vim-snippets.
-  Plugin 'gmarik/Vundle.vim'                  " Plugin manager, using now.
-  Plugin 'honza/vim-snippets'                 " Snippet files uses, vim-snipmate.
-  Plugin 'jelera/vim-javascript-syntax'       " Enhanced sytax for javascript.
-  Plugin 'jgdavey/tslime.vim'                 " Send text from buffer to tmux session.
-  Plugin 'justinmk/vim-syntax-extra'          " Enhanced sytax definitions for C.
-  Plugin 'kchmck/vim-coffee-script'           " CS syntax, indenting, compiling.
-  Plugin 'kien/ctrlp.vim'                     " File fuzzyfinder.
-  Plugin 'L9'                                 " General utility functions.
-  Plugin 'MarcWeber/vim-addon-mw-utils'       " Dependency of vim-snipmate.
-  Plugin 'mileszs/ack.vim'                    " The Silver Searcher / ag.
-  Plugin 'mustache/vim-mustache-handlebars'   " Mustache/hbs syntax & abbrevs.
-  Plugin 'nathanaelkane/vim-indent-guides'    " Highlight indented column space.
-  Plugin 'pangloss/vim-javascript'            " Javascript syntax, indenting.
-  Plugin 'Raimondi/delimitMate'               " Insert mode auto-closing quotes, parens, brackets.
-  Plugin 'scrooloose/nerdtree'                " Visual file navigation.
-  Plugin 'scrooloose/syntastic'               " Syntax checker, displays errors.
+  Plugin 'christoomey/vim-tmux-navigator'   " Vim and tmux pane navigation.
+  Plugin 'ervandew/supertab'                " Insert mode completion.
+  Plugin 'flazz/vim-colorschemes'           " Library of colorschemes.
+  Plugin 'garbas/vim-snipmate'              " Snippet engine for vim-snippets.
+  Plugin 'gmarik/Vundle.vim'                " Plugin manager, using now.
+  Plugin 'honza/vim-snippets'               " Snippet files uses, vim-snipmate.
+  Plugin 'jelera/vim-javascript-syntax'     " Enhanced sytax for javascript.
+  Plugin 'jgdavey/tslime.vim'               " Send text from buffer to tmux session.
+  Plugin 'justinmk/vim-syntax-extra'        " Enhanced sytax definitions for C.
+  Plugin 'kchmck/vim-coffee-script'         " CS syntax, indenting, compiling.
+  Plugin 'kien/ctrlp.vim'                   " File fuzzyfinder.
+  Plugin 'L9'                               " General utility functions.
+  Plugin 'MarcWeber/vim-addon-mw-utils'     " Dependency of vim-snipmate.
+  Plugin 'mileszs/ack.vim'                  " The Silver Searcher / ag.
+  Plugin 'mustache/vim-mustache-handlebars' " Mustache/hbs syntax & abbrevs.
+  Plugin 'nathanaelkane/vim-indent-guides'  " Highlight indented column space.
+  Plugin 'pangloss/vim-javascript'          " Javascript syntax, indenting.
+  Plugin 'Raimondi/delimitMate'             " Insert mode auto-closing quotes, parens, brackets.
+  Plugin 'scrooloose/nerdtree'              " Visual file navigation.
+  " Plugin 'scrooloose/syntastic'             " Syntax checker, displays errors.
   Plugin 'Shougo/vimproc.vim'
-  " Plugin 'Shougo/vimshell.vim'              " Interactive shell in a buffer.
-  " Plugin 'sjl/gundo.vim'                    " Visualize undo history.
-  Plugin 'terryma/vim-multiple-cursors'       " Sublime-style multiple selection.
-  Plugin 'thoughtbot/vim-rspec'
-  Plugin 'tomtom/tlib_vim'
-  Plugin 'tpope/vim-bundler'
-  Plugin 'tpope/vim-endwise'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'tpope/vim-commentary'
+  " Plugin 'Shougo/vimshell.vim'            " Interactive shell in a buffer.
+  " Plugin 'sjl/gundo.vim'                  " Visualize undo history.
+  Plugin 'terryma/vim-multiple-cursors'     " Sublime-style multiple selection.
+  Plugin 'thoughtbot/vim-rspec'             " Rspec runner. RunLastSpec(), RunNearestSpec(), etc.
+  Plugin 'tomtom/tlib_vim'                  " Utility functions.
+  Plugin 'tpope/vim-bundler'                " Bundler wrapper. :Bundle {command}.
+  Plugin 'tpope/vim-endwise'                " Auto-closing of ruby blocks.
+  Plugin 'tpope/vim-fugitive'               " Git wrapper. :Git {command}.
+  Plugin 'tpope/vim-commentary'             " Comment stuff out with gcc.
   Plugin 'tpope/vim-rails'
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
   Plugin 'vim-utils/vim-man'
-  Plugin 'vim-ruby/vim-ruby'                  " Ruby configuration files.
+  Plugin 'vim-ruby/vim-ruby'                " Ruby configuration files.
 call vundle#end()
 
 if !exists('g:airline_symbols')
@@ -112,8 +112,8 @@ nno ; :
 nno <leader>a   :Ack | " leave a space
 nno <leader>b   obinding.pry<ESC>
 nno <leader>B   Obinding.pry<ESC>
-nno <leader>bf   :bfirst<CR>
-nno <leader>bl   :blast<CR>
+nno <leader>bf  :bfirst<CR>
+nno <leader>bl  :blast<CR>
 nno <leader>bd  :bp<cr>:bd #<cr>
 nno <leader>bi  :!bundle install<CR>
 nno <leader>bo  :Bvsplit | " leave a space
@@ -123,8 +123,8 @@ nno <leader>ch  :Git checkout | " leave a space
 nno <leader>fi  mzgg=G'z
 nno <leader>g   :Git | " leave a space
 nno <leader>G   :Git! | " leave a space
-nno <leader>gbl  :Gblame<CR>
-nno <leader>gbr  :Git branch<CR>
+nno <leader>gbl :Gblame<CR>
+nno <leader>gbr :Git branch<CR>
 nno <leader>gc  :Gcommit<CR>
 nno <leader>gd  :Gdiff<CR>
 nno <leader>gf  :Gfetch<CR>
