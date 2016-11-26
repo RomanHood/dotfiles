@@ -1,3 +1,5 @@
+# to ~/.bashrc add: source $ROMAN_DOTFILES/bashrc
+
 # Handy colored tags for scripting
 txtrst=$(tput sgr0)
 red=$(tput setaf 1)

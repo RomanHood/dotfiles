@@ -1,3 +1,4 @@
+" to ~/.vimrc add: source $ROMAN_DOTFILES/vimrc
 set nocompatible           " Set this first for all further settings
 
 function! MyFoldText()
