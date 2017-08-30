@@ -27,6 +27,7 @@ set softtabstop=2          " Number of spaces to use for <Tab> in Insert mode.
 set timeoutlen=400         " Number of milliseconds to resolve key mappings.
 set t_Co=256               " Number of colors.
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*
+" set shellcmdflag=-ic           " Make vim command line recognize bash aliases
 
 exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 
