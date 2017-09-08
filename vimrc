@@ -29,7 +29,7 @@ set t_Co=256               " Number of colors.
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*
 " set shellcmdflag=-ic           " Make vim command line recognize bash aliases
 
-exec "set listchars=tab:\uBB-,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
+exec "set listchars=tab:--,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 
 filetype off               " Needed for plugin initialization
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -94,7 +94,7 @@ let g:ackprg = 'ag --column'
 let g:syntastic_check_on_open=1
 let g:mustache_abbreviations = 1
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let &colorcolumn=81
+" let &colorcolumn=81
 
 filetype indent plugin on
 syntax on                   " Colors
@@ -112,8 +112,8 @@ ino <right> <Nop>
 
 nno ; :
 nno <leader>a   :Ack | " leave a space
-nno <leader>b   obinding.pry<ESC>
-nno <leader>B   Obinding.pry<ESC>
+nno <leader>b   orequire 'pry'; binding.pry<ESC>
+nno <leader>B   Orequire 'pry'; binding.pry<ESC>
 nno <leader>bf  :bfirst<CR>
 nno <leader>bl  :blast<CR>
 nno <leader>bd  :bp<cr>:bd #<cr>
@@ -122,6 +122,9 @@ nno <leader>bo  :Bvsplit | " leave a space
 nno <leader>bu  :!bundle update<CR>
 nno <leader>cd  :cd
 nno <leader>ch  :Git checkout | " leave a space
+nno <leader>cl  Oconsole.log()<ESC>i
+nno <leader>d   odebugger<ESC>
+nno <leader>D   Odebugger<ESC>
 nno <leader>fi  mzgg=G'z
 nno <leader>g   :Git | " leave a space
 nno <leader>G   :Git! | " leave a space
@@ -138,11 +141,16 @@ nno <leader>gt  :Git tree<CR>
 nno <leader>h   :bprevious<CR>
 nno <leader>l   :bnext<CR>
 nno <leader>p   :pwd<CR>
+nno <leader>P   o<Esc>pkJ
 nno <leader>pll :Gpull<CR>
 nno <leader>psh :Gpush<CR>
 nno <leader>r   :w !sudo tee % <CR> " save the files using sudo
 nno <leader>s   :source ~/.vimrc<CR>
 nno <leader>TS  :%s/\s\+$//<CR>
+nno <leader>t   :tabnew<CR>
+nno <leader>tc  :tabclose<CR>
+nno <leader>th  :tabprev<CR>
+nno <leader>tl  :tabnext<CR>
 nno <leader>v   gg V G
 nno <leader>vs  :e ~/dotfiles/vimrc<CR>
 nno <leader>1   :!

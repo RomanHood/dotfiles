@@ -42,11 +42,11 @@ function h() {
 }
 
 # Show current git branch in command line
-parse_git_branch () {
+parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-parse_git_tag () {
+parse_git_tag() {
   git describe --tags 2> /dev/null
 }
 
@@ -59,7 +59,7 @@ parse_git_branch_or_tag() {
   echo $OUT
 }
 
-function clear_if () {
+function clear_if() {
   local last=$(history | tail -1 | head -1)
   [[ $last == *clear* ]] || printf '\n'
 }
@@ -75,3 +75,4 @@ export HISTFILESIZE=1000000
 export EDITOR=vim
 
 source "$HOME/dotfiles/aliases"
+source "$HOME/aliases"
