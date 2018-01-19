@@ -122,7 +122,8 @@ nno <leader>bo  :Bvsplit | " leave a space
 nno <leader>bu  :!bundle update<CR>
 nno <leader>cd  :cd
 nno <leader>ch  :Git checkout | " leave a space
-nno <leader>cl  Oconsole.log()<ESC>i
+nno <leader>cl  oconsole.log()<ESC>i
+nno <leader>Cl  Oconsole.log()<ESC>i
 nno <leader>d   odebugger<ESC>
 nno <leader>D   Odebugger<ESC>
 nno <leader>fi  mzgg=G'z
@@ -152,7 +153,9 @@ nno <leader>tc  :tabclose<CR>
 nno <leader>th  :tabprev<CR>
 nno <leader>tl  :tabnext<CR>
 nno <leader>v   gg V G
-nno <leader>vs  :e ~/dotfiles/vimrc<CR>
+nno <leader>vs  :tabnew <CR>:e ~/dotfiles/vimrc<CR>
+nno <leader>zh  20zh
+nno <leader>zl  40zl
 nno <leader>1   :!
 nno <leader>]   :NERDTree<CR>
 
