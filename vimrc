@@ -93,6 +93,7 @@ let g:ctrlp_show_hidden=1
 let g:ackprg = 'ag --column'
 let g:syntastic_check_on_open=1
 let g:mustache_abbreviations = 1
+let g:NERDTreeChDirMode = 2
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " let &colorcolumn=81
 
