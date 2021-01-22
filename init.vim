@@ -34,8 +34,8 @@ set undodir=$HOME/.vimundodir   " store undo history in a directory
 exec "set listchars=tab:--,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 
 filetype off               " Needed for plugin initialization
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin('~/.config/nvim/bundle')
   " Plugin 'vim-vdebug/vdebug'
   Plugin 'chrisbra/csv.vim'
   Plugin 'christoomey/vim-tmux-navigator'   " Vim and tmux pane navigation.
