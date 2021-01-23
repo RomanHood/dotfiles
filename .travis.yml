@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+ - 2.2
+ - jruby
+
+branches:
+  only:
+  - master
+  - testravis
+
+script: echo 'hello'
