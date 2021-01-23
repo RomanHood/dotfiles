@@ -6,6 +6,6 @@ rvm:
 branches:
   only:
   - master
-  - testtravis
+  - testravis
 
 script: echo 'hello'
