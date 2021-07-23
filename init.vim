@@ -1,3 +1,4 @@
+let g:snipMate = { 'snippet_version' : 1 }
 " to ~/.vimrc add: source $ROMAN_DOTFILES/vimrc
 set nocompatible           " Set this first for all further settings
 
@@ -11,9 +12,10 @@ endfunction
 set encoding=utf-8         " Set character encoding used in Vim.
 set expandtab              " Insert mode uses spaces for <Tab> key.
 set fillchars="fold: "     " Fill fold lines with empty spaces.
-set foldtext=MyFoldText()  " Show beginning text followed by fold length.
+" set foldtext=MyFoldText()  " Show beginning text followed by fold length.
 set foldmethod=syntax      " Find folds based on filetype syntax.
-set foldlevelstart=1       " Default fold level, folds 1 level deep are closed
+" set foldlevelstart=2       " Default fold level, folds 1 level deep are closed
+set nofoldenable
 set laststatus=2           " Every pane has a status line.
 set list                   " Turn on listchars, symbolize certain characters.
 set noswapfile             " No swap files, use version control instead.
@@ -36,7 +38,6 @@ exec "set listchars=tab:--,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 filetype off               " Needed for plugin initialization
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
-  " Plugin 'vim-vdebug/vdebug'
   Plugin 'chrisbra/csv.vim'
   Plugin 'christoomey/vim-tmux-navigator'   " Vim and tmux pane navigation.
   Plugin 'ervandew/supertab'                " Insert mode completion.
@@ -56,7 +57,6 @@ call vundle#begin('~/.config/nvim/bundle')
   Plugin 'pangloss/vim-javascript'          " Javascript syntax, indenting.
   Plugin 'Raimondi/delimitMate'             " Insert mode auto-closing quotes, parens, brackets.
   Plugin 'tpope/vim-vinegar'
-  " Plugin 'scrooloose/syntastic'             " Syntax checker, displays errors.
   Plugin 'Shougo/vimproc.vim'
   " Plugin 'Shougo/vimshell.vim'            " Interactive shell in a buffer.
   " Plugin 'sjl/gundo.vim'                  " Visualize undo history.
@@ -72,123 +72,46 @@ call vundle#begin('~/.config/nvim/bundle')
   " Plugin 'vim-airline/vim-airline-themes'
   Plugin 'vim-utils/vim-man'
   Plugin 'vim-ruby/vim-ruby'                " Ruby configuration files.
-
-
-
-
-
-
-
-  Plugin 'tpope/vim-sensible'               " a good place to start
+  Plugin 'stefandtw/quickfix-reflector.vim'
+  " Plugin 'tpope/vim-sensible'               " a good place to start
   Plugin 'tomasiser/vim-code-dark'          " theme
   Plugin 'ryanoasis/vim-devicons'           " icons for things
 
   Plugin 'kevindurb/vim-splits'             " split settings and keymaps
   Plugin 'kevindurb/vim-whiteout'           " show trailing whitespace
-
-
   Plugin 'tpope/vim-repeat'                 " repeating plugin commands
   Plugin 'tpope/vim-surround'               " surround with things
   Plugin 'tpope/vim-unimpaired'             " mappings for things with '['
   Plugin 'tpope/vim-dispatch'               " add backgrounding
-
   Plugin 'cespare/vim-toml'                 " rust config files
   Plugin 'rust-lang/rust.vim'               " rust syntax
   Plugin 'MaxMEllon/vim-jsx-pretty'         " jsx syntax
-  Plugin 'leafgarland/typescript-vim'       " typescript syntax
-
-  " Plugin 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
+  " Plugin 'leafgarland/typescript-vim'       " typescript syntax
+  Plugin 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
   Plugin 'alvan/vim-closetag'               " autoclose tags
-  Plugin 'w0rp/ale'                         " syntax and style checking
-  Plugin 'vim-vdebug/vdebug'                " debug php
   Plugin 'ludovicchabant/vim-gutentags'     " auto tag file management
-
   Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plugin 'junegunn/fzf.vim'
+  Plugin 'martinda/Jenkinsfile-vim-syntax'
 call vundle#end()
 
-" if !exists('g:airline_symbols')
-"   let g:airline_symbols = {}
-" endif
-" let g:airline#extensions#tabline#enabled=1
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_section_y=""
-" let g:airline_powerline_fonts=0
-" let g:airline_theme='jellybeans'
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_section_y = "%{strlen(&ft)?&ft:'none'}"
-" let g:airline#extensions#branch#enabled = 1
-" let g:airline#extensions#branch#displayed_head_limit = 15
-" let g:ctrlp_show_hidden=1
+let g:gutentags_ctags_exclude = ['node_modules', '.git', '.serverless', 'ui/node_modules', 'service/node_modules', 'dist', 'package-lock.json']
 let g:ackprg = 'ag --column'
 let g:syntastic_check_on_open=1
 let g:mustache_abbreviations = 1
-" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:rg_command = 'rg --vimgrep -S'
+
 " let &colorcolumn=81
 
 filetype indent plugin on
 syntax on                   " Colors
 
 
-nno ; :
-nno <leader>a   :Ack | " leave a space
-nno <leader>b   orequire 'pry'; binding.pry<ESC>
-nno <leader>B   Orequire 'pry'; binding.pry<ESC>
-nno <leader>bf  :bfirst<CR>
-nno <leader>bl  :blast<CR>
-nno <leader>bd  :bp<cr>:bd #<cr>
-nno <leader>bi  :!bundle install<CR>
-nno <leader>bo  :Bvsplit | " leave a space
-nno <leader>bu  :!bundle update<CR>
-nno <leader>cd  :cd
-nno <leader>ch  :Git checkout | " leave a space
-nno <leader>cl  oconsole.log()<ESC>i
-nno <leader>Cl  Oconsole.log()<ESC>i
-nno <leader>d   odebugger<ESC>
-nno <leader>dg  :diffget
-nno <leader>dp  :diffput
-nno <leader>D   Odebugger<ESC>
-nno <leader>fi  mzgg=G'z
-nno <leader>g   :Git | " leave a space
-nno <leader>gd  :Gdiff
-nno <leader>ge  :Gedit
-nno <leader>gf  :Gfetch
-nno <leader>gr  :Gread
-nno <leader>gw  :Gwrite
-nno <leader>G   :Git! | " leave a space
-nno <leader>gbl :Gblame<CR>
-nno <leader>gbr :Git branch<CR>
-nno <leader>gc  :Gcommit<CR>
-nno <leader>gd  :Gdiff<CR>
-nno <leader>gf  :Gfetch<CR>
-nno <leader>gl  :Git log<CR>
-nno <leader>gm  :Gmerge  | " leave a speace
-nno <leader>gp  :Git push | " leave a space
-nno <leader>gs  :Gstatus<CR>
-nno <leader>gt  :Git tree<CR>
-nno <leader>h   :bprevious<CR>
-nno <leader>l   :bnext<CR>
-nno <leader>p   :pwd<CR>
-nno <leader>P   o<Esc>pkJ
-nno <leader>pll :Gpull<CR>
-nno <leader>psh :Gpush<CR>
-nno <leader>r   :w !sudo tee % <CR> " save the files using sudo
-nno <leader>s   :source ~/.vimrc<CR>
-nno <leader>TS  :%s/\s\+$//<CR>
-nno <leader>t   :tabnew<CR>
-nno <leader>tc  :tabclose<CR>
-nno <leader>th  :tabprev<CR>
-nno <leader>tl  :tabnext<CR>
-nno <leader>v   gg V G
-nno <leader>vs  :tabnew <CR>:e ~/dotfiles/vimrc<CR>
-nno <leader>zh  20zh
-nno <leader>zl  40zl
-nno <leader>1   :!
-nno <C-p> :FZF<CR>
+set nohlsearch
+augroup quickfix
+    autocmd!
+    autocmd FileType qf setlocal wrap
+augroup END
 
 colorscheme inkpot
 
@@ -203,28 +126,85 @@ augroup language_tabbing
 augroup END
 
 
+command! -nargs=0 Jest :call CocAction('runCommand', 'jest.projectTest')
+command! -nargs=0 JestCurrent :call CocAction('runCommand', 'jest.fileTest', ['%'])
+nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+nnoremap <leader>tf :JestCurrent<CR>
+nnoremap <leader>tr :Jest<CR>
+" Init jest in current cwd, require global jest command exists
+command! JestInit :call CocAction('runCommand', 'jest.init')
 
-
-" ale settings
-let g:ale_linters = {
-\ 'graphql': ['gqlint'],
-\ 'javascript': ['eslint'],
-\ 'javascript jsx': ['eslint'],
-\ 'css': ['stylelint'],
-\ 'ruby': [],
-\}
-let g:ale_php_phpcs_standard = '/Users/rhood/Development/churchcommunitybuilder/app/src/phpcs_ruleset.xml'
-let g:ale_php_phpcs_executable = '/Users/rhood/Development/churchcommunitybuilder/app/vendor/bin/phpcs'
-let g:ale_php_phpcs_use_global = 0
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\  'rust': ['rustfmt'],
-\  'go': ['gofmt'],
-\}
-let g:ale_fix_on_save = 1
-" match pairs
+" " match pairs
 let delimitMate_matchpairs = "(:),[:],{:}"
 
 " autoclose jsx
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx,*.js"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx,*.js,*.ts"
+autocmd BufWritePre *.json :normal gg=G
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>qf  <Plug>(coc-fix-current)
+nno ; :
+nno <leader>a   :Ack | " leave a space
+nno <leader>b   orequire 'pry'; binding.pry<ESC>
+nno <leader>B   Orequire 'pry'; binding.pry<ESC>
+nno <leader>bf  :bfirst<CR>
+nno <leader>bl  :blast<CR>
+nno <leader>bd  :bp<cr>:bd #<cr>
+nno <leader>bi  :!bundle install<CR>
+nno <leader>bo  :Bvsplit | " leave a space
+nno <leader>bu  :!bundle update<CR>
+nno <leader>cd  :cd
+nno <leader>ch  :Git checkout | " leave a space
+nno <leader>cl  oconsole.log()<ESC>i
+nno <leader>Cl  Oconsole.log()<ESC>i
+" nno <leader>d   odebugger<ESC>
+nno <leader>d   :bp<cr>:bd #<cr>:tabclose<crk
+nno <leader>da  :bufdo bd<CR>-
+nno <leader>dg  :diffget
+nno <leader>dp  :diffput
+nno <leader>D   Odebugger<ESC>
+nno <leader>F   :Rg | " leave a space
+nno <leader>fi  mzgg=G'z
+nno <leader>g   :Git | " leave a space
+nno <leader>gd  :Gdiff
+nno <leader>ge  :Gedit
+nno <leader>gf  :Gfetch
+nno <leader>gr  :Gread
+nno <leader>gw  :Gwrite
+nno <leader>G   :Git! | " leave a space
+nno <leader>gbl :Gblame<CR>
+nno <leader>gbr :Git branch<CR>
+nno <leader>gc  :Git commit<CR>
+nno <leader>gd  :Gdiff<CR>
+nno <leader>gf  :Gfetch<CR>
+nno <leader>gl  :Git log<CR>
+nno <leader>gm  :Gmerge  | " leave a speace
+nno <leader>gp  :Git push | " leave a space
+nno <leader>gs  :Git<CR>
+nno <leader>gt  :Git tree<CR>
+nno <leader>h   :tabprevious<CR>
+nno <leader>im  :TsuImport<CR>
+nno <leader>js  :%!python -m json.tool<CR>
+nno <leader>l   :tabnext<CR>
+nno <leader>p   :pwd<CR>
+nno <leader>P   o<Esc>pkJ
+nno <leader>pll :Git pull<CR>
+nno <leader>psh :Gpush<CR>
+nno <leader>r   :w !sudo tee % <CR> " save the files using sudo
+nno <leader>s   :source ~/.config/nvim/init.vim<CR>
+nno <leader>TS  :%s/\s\+$//<CR>
+nno <leader>t   :tabnew<CR>
+nno <leader>tc  :tabclose<CR>
+nno <leader>th  :tabprev<CR>
+nno <leader>tl  :tabnext<CR>
+nno <leader>v   ggVG
+nno <leader>vs  :tabnew <CR>:e ~/dotfiles/vimrc<CR>
+nno <leader>zh  20zh
+nno <leader>zl  40zl
+nno <leader>1   :!
+nno <C-p> :GFiles<CR>
+nno <C-b> :Buffers<CR>
+nno <C-f> :Files<CR>
+

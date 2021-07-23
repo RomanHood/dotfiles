@@ -1,3 +1,4 @@
+" let g:snipMate = { 'snippet_version' : 1 }
 " to ~/.vimrc add: source $ROMAN_DOTFILES/vimrc
 set nocompatible           " Set this first for all further settings
 
@@ -36,27 +37,24 @@ exec "set listchars=tab:--,trail:\uB7,nbsp:~,eol:¬,extends:→,precedes:←"
 filetype off               " Needed for plugin initialization
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-  " Plugin 'vim-vdebug/vdebug'
   Plugin 'chrisbra/csv.vim'
   Plugin 'christoomey/vim-tmux-navigator'   " Vim and tmux pane navigation.
   Plugin 'ervandew/supertab'                " Insert mode completion.
   Plugin 'flazz/vim-colorschemes'           " Library of colorschemes.
-  Plugin 'garbas/vim-snipmate'              " Snippet engine for vim-snippets.
+  " Plugin 'garbas/vim-snipmate'              " Snippet engine for vim-snippets.
   Plugin 'gmarik/Vundle.vim'                " Plugin manager, using now.
-  Plugin 'honza/vim-snippets'               " Snippet files uses, vim-snipmate.
-  Plugin 'jelera/vim-javascript-syntax'     " Enhanced sytax for javascript.
+  " Plugin 'honza/vim-snippets'               " Snippet files uses, vim-snipmate.
   Plugin 'jgdavey/tslime.vim'               " Send text from buffer to tmux session.
   Plugin 'justinmk/vim-syntax-extra'        " Enhanced sytax definitions for C.
   Plugin 'kchmck/vim-coffee-script'         " CS syntax, indenting, compiling.
   Plugin 'L9'                               " General utility functions.
-  Plugin 'MarcWeber/vim-addon-mw-utils'     " Dependency of vim-snipmate.
+  " Plugin 'MarcWeber/vim-addon-mw-utils'     " Dependency of vim-snipmate.
   Plugin 'mileszs/ack.vim'                  " The Silver Searcher / ag.
   Plugin 'mustache/vim-mustache-handlebars' " Mustache/hbs syntax & abbrevs.
   Plugin 'nathanaelkane/vim-indent-guides'  " Highlight indented column space.
   Plugin 'pangloss/vim-javascript'          " Javascript syntax, indenting.
   Plugin 'Raimondi/delimitMate'             " Insert mode auto-closing quotes, parens, brackets.
   Plugin 'tpope/vim-vinegar'
-  " Plugin 'scrooloose/syntastic'             " Syntax checker, displays errors.
   Plugin 'Shougo/vimproc.vim'
   " Plugin 'Shougo/vimshell.vim'            " Interactive shell in a buffer.
   " Plugin 'sjl/gundo.vim'                  " Visualize undo history.
@@ -97,37 +95,20 @@ call vundle#begin()
   Plugin 'MaxMEllon/vim-jsx-pretty'         " jsx syntax
   Plugin 'leafgarland/typescript-vim'       " typescript syntax
 
-  " Plugin 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
   Plugin 'alvan/vim-closetag'               " autoclose tags
-  Plugin 'w0rp/ale'                         " syntax and style checking
-  Plugin 'vim-vdebug/vdebug'                " debug php
+  " Plugin 'w0rp/ale'                         " syntax and style checking
   Plugin 'ludovicchabant/vim-gutentags'     " auto tag file management
 
   Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plugin 'junegunn/fzf.vim'
+  Plugin 'martinda/Jenkinsfile-vim-syntax'
 call vundle#end()
 
-" if !exists('g:airline_symbols')
-"   let g:airline_symbols = {}
-" endif
-" let g:airline#extensions#tabline#enabled=1
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_section_y=""
-" let g:airline_powerline_fonts=0
-" let g:airline_theme='jellybeans'
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_section_y = "%{strlen(&ft)?&ft:'none'}"
-" let g:airline#extensions#branch#enabled = 1
-" let g:airline#extensions#branch#displayed_head_limit = 15
-" let g:ctrlp_show_hidden=1
+let g:gutentags_ctags_exclude = ['node_modules', '.git', '.serverless', 'ui/node_modules', 'service/node_modules', 'dist', 'package-lock.json']
 let g:ackprg = 'ag --column'
 let g:syntastic_check_on_open=1
 let g:mustache_abbreviations = 1
-" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " let &colorcolumn=81
 
 filetype indent plugin on
@@ -171,6 +152,7 @@ nno <leader>gp  :Git push | " leave a space
 nno <leader>gs  :Gstatus<CR>
 nno <leader>gt  :Git tree<CR>
 nno <leader>h   :bprevious<CR>
+nno <leader>im  :TsuImport<CR>
 nno <leader>l   :bnext<CR>
 nno <leader>p   :pwd<CR>
 nno <leader>P   o<Esc>pkJ
@@ -188,9 +170,12 @@ nno <leader>vs  :tabnew <CR>:e ~/dotfiles/vimrc<CR>
 nno <leader>zh  20zh
 nno <leader>zl  40zl
 nno <leader>1   :!
-nno <C-p> :FZF<CR>
+nno <C-p> :GFiles<CR>
+nno <C-b> :Buffers<CR>
+nno <C-f> :Files<CR>
 
-colorscheme inkpot
+autocmd BufWritePre *.json :normal gg=G
+colorscheme dracula
 
 hi Folded ctermfg=red
 hi Folded ctermbg=black
@@ -201,28 +186,6 @@ augroup language_tabbing
   autocmd Filetype css        setlocal ts=2 sts=2 sw=2 expandtab
   autocmd Filetype html       setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
-
-
-
-
-" ale settings
-let g:ale_linters = {
-\ 'graphql': ['gqlint'],
-\ 'javascript': ['eslint'],
-\ 'javascript jsx': ['eslint'],
-\ 'css': ['stylelint'],
-\ 'ruby': [],
-\}
-let g:ale_php_phpcs_standard = '/Users/rhood/Development/churchcommunitybuilder/app/src/phpcs_ruleset.xml'
-let g:ale_php_phpcs_executable = '/Users/rhood/Development/churchcommunitybuilder/app/vendor/bin/phpcs'
-let g:ale_php_phpcs_use_global = 0
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\  'rust': ['rustfmt'],
-\  'go': ['gofmt'],
-\}
-let g:ale_fix_on_save = 1
 " match pairs
 let delimitMate_matchpairs = "(:),[:],{:}"
 
