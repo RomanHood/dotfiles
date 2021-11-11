@@ -2,6 +2,7 @@ set nocompatible           " Set this first for all further settings
 set expandtab              " Insert mode uses spaces for <Tab> key.
 set nohlsearch
 set noswapfile             " No swap files, use version control instead.
+set nowrap
 set number                 " Show line numbers
 set softtabstop=2          " Number of spaces to use for <Tab> in Insert mode.
 set shiftwidth=2           " Number of spaces to use for >> and <<.
@@ -13,32 +14,31 @@ set wildmenu
 set wildmode=list:full
 
 filetype off               " Needed for plugin initialization
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-  Plugin 'ervandew/supertab'                " Insert mode completion.
-  Plugin 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-  Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plugin 'junegunn/fzf.vim'
-  Plugin 'ludovicchabant/vim-gutentags'     " auto tag file management
-  Plugin 'gmarik/Vundle.vim'                " Plugin manager, using now.
-  Plugin 'tpope/vim-fugitive'               " Git wrapper. :Git {command}.
-  Plugin 'tpope/vim-commentary'             " Comment stuff out with gcc.
-  Plugin 'tpope/vim-vinegar'                " Directory navigation with netrw.
-  Plugin 'jremmen/vim-ripgrep'
-  Plugin 'stefandtw/quickfix-reflector.vim'
-  Plugin 'tpope/vim-sensible'
-  Plugin 'flazz/vim-colorschemes'           " Library of colorschemes.
-  Plugin 'Raimondi/delimitMate'             " Insert mode auto-closing (), {}, [], ''.
-  Plugin 'alvan/vim-closetag'               " autoclose tags
-  Plugin 'tpope/vim-surround'               " surround with things
-  Plugin 'pangloss/vim-javascript'          " Javascript syntax, indenting.
-  Plugin 'leafgarland/typescript-vim'       " typescript syntax
-  Plugin 'vim-ruby/vim-ruby'                " Ruby configuration files.
-  Plugin 'cespare/vim-toml'                 " rust config files
-  Plugin 'rust-lang/rust.vim'               " rust syntax
-  Plugin 'MaxMEllon/vim-jsx-pretty'         " jsx syntax
-  Plugin 'martinda/Jenkinsfile-vim-syntax'
-call vundle#end()
+call plug#begin()
+  Plug 'ervandew/supertab'                " Insert mode completion.
+  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+  Plug 'ludovicchabant/vim-gutentags'     " auto tag file management
+  Plug 'gmarik/Vundle.vim'                " Plugin manager, using now.
+  Plug 'tpope/vim-fugitive'               " Git wrapper. :Git {command}.
+  Plug 'tpope/vim-commentary'             " Comment stuff out with gcc.
+  Plug 'tpope/vim-vinegar'                " Directory navigation with netrw.
+  Plug 'jremmen/vim-ripgrep'
+  Plug 'stefandtw/quickfix-reflector.vim'
+  Plug 'tpope/vim-sensible'
+  Plug 'flazz/vim-colorschemes'           " Library of colorschemes.
+  Plug 'Raimondi/delimitMate'             " Insert mode auto-closing (), {}, [], ''.
+  Plug 'alvan/vim-closetag'               " autoclose tags
+  Plug 'tpope/vim-surround'               " surround with things
+  Plug 'pangloss/vim-javascript'          " Javascript syntax, indenting.
+  Plug 'leafgarland/typescript-vim'       " typescript syntax
+  Plug 'vim-ruby/vim-ruby'                " Ruby configuration files.
+  Plug 'cespare/vim-toml'                 " rust config files
+  Plug 'rust-lang/rust.vim'               " rust syntax
+  Plug 'MaxMEllon/vim-jsx-pretty'         " jsx syntax
+  Plug 'martinda/Jenkinsfile-vim-syntax'
+call plug#end()
 let g:gutentags_ctags_exclude = ['.git', '.serverless', 'dist', 'package-lock.json', 'build']
 let g:rg_command = 'rg --vimgrep -S'
 let g:ackprg = 'ag --column'
@@ -67,8 +67,8 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 nno <leader>1   :!
 nno <leader>a   :Use \F! |
 nno <leader>bd  :bp<cr>:bd #<cr>
-nno <leader>cl  :oconsole.log()<ESC>i
-nno <leader>Cl  :Oconsole.log()<ESC>i
+nno <leader>cl  oconsole.log()<ESC>i
+nno <leader>Cl  Oconsole.log()<ESC>i
 nno <leader>da  :bufdo bd<CR>-
 nno <leader>F   :Rg | " leave a space
 nno <leader>g   :Git | " leave a space
