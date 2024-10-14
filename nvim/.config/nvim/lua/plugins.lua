@@ -78,7 +78,14 @@ return require("packer").startup(function(use)
 
     use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
 
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function()
+          vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+    })
 
     use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 
@@ -113,6 +120,18 @@ return require("packer").startup(function(use)
             "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
         },
+    })
+
+    -- Noice
+    use({
+        "folke/noice.nvim",
+        requires = {
+          "MunifTanjim/nui.nvim",
+          "rcarriga/nvim-notify",
+        },
+        config = function()
+            require("configs.noice")
+        end,
     })
 
     -- Show colors

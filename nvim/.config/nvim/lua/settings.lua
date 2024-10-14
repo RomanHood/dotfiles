@@ -1,5 +1,7 @@
 local global = vim.g
 local o = vim.o
+local wo = vim.wo
+
 
 vim.scriptencoding = "utf-8"
 
@@ -31,6 +33,7 @@ o.showcmd = true -- Show (partial) command in the last line of the screen. Set t
 o.showmatch = true -- When a bracket is inserted, briefly jump to the matching one.
 o.inccommand = "split" -- When nonempty, shows the effects of :substitute, :smagic, :snomagic and user commands with the :command-preview flag as you type.
 o.splitbelow = "splitright" -- When on, splitting a window will put the new window below the current one
+wo.wrap = false -- Don't wrap long lines, scroll off screen instead.
 
 vim.keymap.set('n', '<C-H>',   '<C-W><C-H>')       
 vim.keymap.set('n', '<NL>',    '<C-W><NL>')        
