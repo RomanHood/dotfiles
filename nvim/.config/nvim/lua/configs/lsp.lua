@@ -70,14 +70,14 @@ nvim_lsp.tailwindcss.setup({
 	capabilities = capabilities,
 })
 
---nvim_lsp.ruby_lsp.setup{
---  on_attach = on_attach,
---  capabilities = capabilities,
---  -- other configuration options...
---}
-
-nvim_lsp.solargraph.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	-- other configuration options...
-})
+nvim_lsp.ruby_lsp.setup{
+ on_attach = on_attach,
+ capabilities = capabilities,
+ -- other configuration options...
+}
+--
+-- nvim_lsp.solargraph.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- 	-- other configuration options...
+-- })

@@ -1,8 +1,21 @@
 return {
-	-- {"github/copilot.vim"},
+	{"github/copilot.vim"},
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-tree/nvim-web-devicons" },
 	{ "rebelot/kanagawa.nvim" },
+  {
+    "vim-scripts/RltvNmbr.vim",
+    lazy = false,
+    config = function()
+      -- Enable RltvNmbr for all buffers
+      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+        pattern = "*",
+        callback = function()
+          vim.cmd("RltvNmbr")
+        end
+      })
+    end,
+  },
 	{ "tpope/vim-fugitive" },
 	{
 		"nvim-lualine/lualine.nvim",
@@ -122,7 +135,6 @@ return {
 			})
 		end,
 	},
-
 	-- AI CODING
 	{
 		"yetone/avante.nvim",
@@ -146,9 +158,9 @@ return {
 				"zbirenbaum/copilot.lua",
 				cmd = "Copilot",
 				event = "InsertEnter",
-				config = function()
-					require("copilot").setup({})
-				end, -- for providers='copilot'
+				-- config = function()
+				-- 	require("copilot").setup({})
+				-- end, -- for providers='copilot'
 			},
 			{
 				-- support for image pasting
