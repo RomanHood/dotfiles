@@ -14,11 +14,11 @@ nls.setup({
 	sources = {
 
 		-- Formatting
-		fmt.prettierd,
+		-- fmt.prettierd,
 		fmt.eslint_d,
-		fmt.prettier.with({
-			filetypes = { "html", "json", "yaml", "markdown", "javascript", "typescript" },
-		}),
+		-- fmt.prettier.with({
+		-- 	filetypes = { "html", "json", "yaml", "markdown", "javascript", "typescript" },
+		-- }),
 		fmt.stylua,
 		fmt.rustfmt,
 		fmt.solargraph,
