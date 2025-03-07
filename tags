@@ -1,6 +1,152 @@
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
-!_TAG_PROGRAM_NAME	Exuberant Ctags	//
-!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/aac6193/
+;	init.vim	/^nno ; :$/;"	m
+;	vimrc	/^nno ; :$/;"	m
+<C-p>	init.vim	/^nno <C-p> :FZF<CR>$/;"	m
+<C-p>	vimrc	/^nno <C-p> :FZF<CR>$/;"	m
+<leader>1	init.vim	/^nno <leader>1   :!$/;"	m
+<leader>1	vimrc	/^nno <leader>1   :!$/;"	m
+<leader>B	init.vim	/^nno <leader>B   Orequire 'pry'; binding.pry<ESC>$/;"	m
+<leader>B	vimrc	/^nno <leader>B   Orequire 'pry'; binding.pry<ESC>$/;"	m
+<leader>Cl	init.vim	/^nno <leader>Cl  Oconsole.log()<ESC>i$/;"	m
+<leader>Cl	vimrc	/^nno <leader>Cl  Oconsole.log()<ESC>i$/;"	m
+<leader>D	init.vim	/^nno <leader>D   Odebugger<ESC>$/;"	m
+<leader>D	vimrc	/^nno <leader>D   Odebugger<ESC>$/;"	m
+<leader>G	init.vim	/^nno <leader>G   :Git! | " leave a space$/;"	m
+<leader>G	vimrc	/^nno <leader>G   :Git! | " leave a space$/;"	m
+<leader>P	init.vim	/^nno <leader>P   o<Esc>pkJ$/;"	m
+<leader>P	vimrc	/^nno <leader>P   o<Esc>pkJ$/;"	m
+<leader>TS	init.vim	/^nno <leader>TS  :%s\/\\s\\+$\/\/<CR>$/;"	m
+<leader>TS	vimrc	/^nno <leader>TS  :%s\/\\s\\+$\/\/<CR>$/;"	m
+<leader>a	init.vim	/^nno <leader>a   :Ack | " leave a space$/;"	m
+<leader>a	vimrc	/^nno <leader>a   :Ack | " leave a space$/;"	m
+<leader>b	init.vim	/^nno <leader>b   orequire 'pry'; binding.pry<ESC>$/;"	m
+<leader>b	vimrc	/^nno <leader>b   orequire 'pry'; binding.pry<ESC>$/;"	m
+<leader>bd	init.vim	/^nno <leader>bd  :bp<cr>:bd #<cr>$/;"	m
+<leader>bd	vimrc	/^nno <leader>bd  :bp<cr>:bd #<cr>$/;"	m
+<leader>bf	init.vim	/^nno <leader>bf  :bfirst<CR>$/;"	m
+<leader>bf	vimrc	/^nno <leader>bf  :bfirst<CR>$/;"	m
+<leader>bi	init.vim	/^nno <leader>bi  :!bundle install<CR>$/;"	m
+<leader>bi	vimrc	/^nno <leader>bi  :!bundle install<CR>$/;"	m
+<leader>bl	init.vim	/^nno <leader>bl  :blast<CR>$/;"	m
+<leader>bl	vimrc	/^nno <leader>bl  :blast<CR>$/;"	m
+<leader>bo	init.vim	/^nno <leader>bo  :Bvsplit | " leave a space$/;"	m
+<leader>bo	vimrc	/^nno <leader>bo  :Bvsplit | " leave a space$/;"	m
+<leader>bu	init.vim	/^nno <leader>bu  :!bundle update<CR>$/;"	m
+<leader>bu	vimrc	/^nno <leader>bu  :!bundle update<CR>$/;"	m
+<leader>cd	init.vim	/^nno <leader>cd  :cd$/;"	m
+<leader>cd	vimrc	/^nno <leader>cd  :cd$/;"	m
+<leader>ch	init.vim	/^nno <leader>ch  :Git checkout | " leave a space$/;"	m
+<leader>ch	vimrc	/^nno <leader>ch  :Git checkout | " leave a space$/;"	m
+<leader>cl	init.vim	/^nno <leader>cl  oconsole.log()<ESC>i$/;"	m
+<leader>cl	vimrc	/^nno <leader>cl  oconsole.log()<ESC>i$/;"	m
+<leader>d	init.vim	/^nno <leader>d   odebugger<ESC>$/;"	m
+<leader>d	vimrc	/^nno <leader>d   odebugger<ESC>$/;"	m
+<leader>dg	init.vim	/^nno <leader>dg  :diffget$/;"	m
+<leader>dg	vimrc	/^nno <leader>dg  :diffget$/;"	m
+<leader>dp	init.vim	/^nno <leader>dp  :diffput$/;"	m
+<leader>dp	vimrc	/^nno <leader>dp  :diffput$/;"	m
+<leader>fi	init.vim	/^nno <leader>fi  mzgg=G'z$/;"	m
+<leader>fi	vimrc	/^nno <leader>fi  mzgg=G'z$/;"	m
+<leader>g	init.vim	/^nno <leader>g   :Git | " leave a space$/;"	m
+<leader>g	vimrc	/^nno <leader>g   :Git | " leave a space$/;"	m
+<leader>gbl	init.vim	/^nno <leader>gbl :Gblame<CR>$/;"	m
+<leader>gbl	vimrc	/^nno <leader>gbl :Gblame<CR>$/;"	m
+<leader>gbr	init.vim	/^nno <leader>gbr :Git branch<CR>$/;"	m
+<leader>gbr	vimrc	/^nno <leader>gbr :Git branch<CR>$/;"	m
+<leader>gc	init.vim	/^nno <leader>gc  :Gcommit<CR>$/;"	m
+<leader>gc	vimrc	/^nno <leader>gc  :Gcommit<CR>$/;"	m
+<leader>gd	init.vim	/^nno <leader>gd  :Gdiff$/;"	m
+<leader>gd	init.vim	/^nno <leader>gd  :Gdiff<CR>$/;"	m
+<leader>gd	vimrc	/^nno <leader>gd  :Gdiff$/;"	m
+<leader>gd	vimrc	/^nno <leader>gd  :Gdiff<CR>$/;"	m
+<leader>ge	init.vim	/^nno <leader>ge  :Gedit$/;"	m
+<leader>ge	vimrc	/^nno <leader>ge  :Gedit$/;"	m
+<leader>gf	init.vim	/^nno <leader>gf  :Gfetch$/;"	m
+<leader>gf	init.vim	/^nno <leader>gf  :Gfetch<CR>$/;"	m
+<leader>gf	vimrc	/^nno <leader>gf  :Gfetch$/;"	m
+<leader>gf	vimrc	/^nno <leader>gf  :Gfetch<CR>$/;"	m
+<leader>gl	init.vim	/^nno <leader>gl  :Git log<CR>$/;"	m
+<leader>gl	vimrc	/^nno <leader>gl  :Git log<CR>$/;"	m
+<leader>gm	init.vim	/^nno <leader>gm  :Gmerge  | " leave a speace$/;"	m
+<leader>gm	vimrc	/^nno <leader>gm  :Gmerge  | " leave a speace$/;"	m
+<leader>gp	init.vim	/^nno <leader>gp  :Git push | " leave a space$/;"	m
+<leader>gp	vimrc	/^nno <leader>gp  :Git push | " leave a space$/;"	m
+<leader>gr	init.vim	/^nno <leader>gr  :Gread$/;"	m
+<leader>gr	vimrc	/^nno <leader>gr  :Gread$/;"	m
+<leader>gs	init.vim	/^nno <leader>gs  :Gstatus<CR>$/;"	m
+<leader>gs	vimrc	/^nno <leader>gs  :Gstatus<CR>$/;"	m
+<leader>gt	init.vim	/^nno <leader>gt  :Git tree<CR>$/;"	m
+<leader>gt	vimrc	/^nno <leader>gt  :Git tree<CR>$/;"	m
+<leader>gw	init.vim	/^nno <leader>gw  :Gwrite$/;"	m
+<leader>gw	vimrc	/^nno <leader>gw  :Gwrite$/;"	m
+<leader>h	init.vim	/^nno <leader>h   :bprevious<CR>$/;"	m
+<leader>h	vimrc	/^nno <leader>h   :bprevious<CR>$/;"	m
+<leader>l	init.vim	/^nno <leader>l   :bnext<CR>$/;"	m
+<leader>l	vimrc	/^nno <leader>l   :bnext<CR>$/;"	m
+<leader>p	init.vim	/^nno <leader>p   :pwd<CR>$/;"	m
+<leader>p	vimrc	/^nno <leader>p   :pwd<CR>$/;"	m
+<leader>pll	init.vim	/^nno <leader>pll :Gpull<CR>$/;"	m
+<leader>pll	vimrc	/^nno <leader>pll :Gpull<CR>$/;"	m
+<leader>psh	init.vim	/^nno <leader>psh :Gpush<CR>$/;"	m
+<leader>psh	vimrc	/^nno <leader>psh :Gpush<CR>$/;"	m
+<leader>r	init.vim	/^nno <leader>r   :w !sudo tee % <CR> " save the files using sudo$/;"	m
+<leader>r	vimrc	/^nno <leader>r   :w !sudo tee % <CR> " save the files using sudo$/;"	m
+<leader>s	init.vim	/^nno <leader>s   :source ~\/.vimrc<CR>$/;"	m
+<leader>s	vimrc	/^nno <leader>s   :source ~\/.vimrc<CR>$/;"	m
+<leader>t	init.vim	/^nno <leader>t   :tabnew<CR>$/;"	m
+<leader>t	vimrc	/^nno <leader>t   :tabnew<CR>$/;"	m
+<leader>tc	init.vim	/^nno <leader>tc  :tabclose<CR>$/;"	m
+<leader>tc	vimrc	/^nno <leader>tc  :tabclose<CR>$/;"	m
+<leader>th	init.vim	/^nno <leader>th  :tabprev<CR>$/;"	m
+<leader>th	vimrc	/^nno <leader>th  :tabprev<CR>$/;"	m
+<leader>tl	init.vim	/^nno <leader>tl  :tabnext<CR>$/;"	m
+<leader>tl	vimrc	/^nno <leader>tl  :tabnext<CR>$/;"	m
+<leader>v	init.vim	/^nno <leader>v   gg V G$/;"	m
+<leader>v	vimrc	/^nno <leader>v   gg V G$/;"	m
+<leader>vs	init.vim	/^nno <leader>vs  :tabnew <CR>:e ~\/dotfiles\/vimrc<CR>$/;"	m
+<leader>vs	vimrc	/^nno <leader>vs  :tabnew <CR>:e ~\/dotfiles\/vimrc<CR>$/;"	m
+<leader>zh	init.vim	/^nno <leader>zh  20zh$/;"	m
+<leader>zh	vimrc	/^nno <leader>zh  20zh$/;"	m
+<leader>zl	init.vim	/^nno <leader>zl  40zl$/;"	m
+<leader>zl	vimrc	/^nno <leader>zl  40zl$/;"	m
+MyFoldText	init.vim	/^function! MyFoldText()$/;"	f
+MyFoldText	vimrc	/^function! MyFoldText()$/;"	f
+delimitMate_matchpairs	init.vim	/^let delimitMate_matchpairs = "(:),[:],{:}"$/;"	v
+delimitMate_matchpairs	vimrc	/^let delimitMate_matchpairs = "(:),[:],{:}"$/;"	v
+dotfiles	README.md	/^dotfiles$/;"	c
+g:ackprg	init.vim	/^let g:ackprg = 'ag --column'$/;"	v
+g:ackprg	vimrc	/^let g:ackprg = 'ag --column'$/;"	v
+g:ale_fix_on_save	init.vim	/^let g:ale_fix_on_save = 1$/;"	v
+g:ale_fix_on_save	vimrc	/^let g:ale_fix_on_save = 1$/;"	v
+g:ale_fixers	init.vim	/^let g:ale_fixers = {$/;"	v
+g:ale_fixers	vimrc	/^let g:ale_fixers = {$/;"	v
+g:ale_linters	init.vim	/^let g:ale_linters = {$/;"	v
+g:ale_linters	vimrc	/^let g:ale_linters = {$/;"	v
+g:ale_php_phpcs_executable	init.vim	/^let g:ale_php_phpcs_executable = '\/Users\/rhood\/Development\/churchcommunitybuilder\/app\/vend/;"	v
+g:ale_php_phpcs_executable	vimrc	/^let g:ale_php_phpcs_executable = '\/Users\/rhood\/Development\/churchcommunitybuilder\/app\/vend/;"	v
+g:ale_php_phpcs_standard	init.vim	/^let g:ale_php_phpcs_standard = '\/Users\/rhood\/Development\/churchcommunitybuilder\/app\/src\/p/;"	v
+g:ale_php_phpcs_standard	vimrc	/^let g:ale_php_phpcs_standard = '\/Users\/rhood\/Development\/churchcommunitybuilder\/app\/src\/p/;"	v
+g:ale_php_phpcs_use_global	init.vim	/^let g:ale_php_phpcs_use_global = 0$/;"	v
+g:ale_php_phpcs_use_global	vimrc	/^let g:ale_php_phpcs_use_global = 0$/;"	v
+g:closetag_filenames	init.vim	/^let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx,*.js"$/;"	v
+g:closetag_filenames	vimrc	/^let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx,*.js"$/;"	v
+g:mustache_abbreviations	init.vim	/^let g:mustache_abbreviations = 1$/;"	v
+g:mustache_abbreviations	vimrc	/^let g:mustache_abbreviations = 1$/;"	v
+g:syntastic_check_on_open	init.vim	/^let g:syntastic_check_on_open=1$/;"	v
+g:syntastic_check_on_open	vimrc	/^let g:syntastic_check_on_open=1$/;"	v
+language_tabbing	init.vim	/^augroup language_tabbing$/;"	a
+language_tabbing	vimrc	/^augroup language_tabbing$/;"	a
+style bg	tmux.conf	/^set -g pane-active-border-style bg=blue$/;"	k
+style bg	tmux.conf	/^set -g pane-border-style bg=black$/;"	k
+style bg	tmux.conf	/^set-window-option -g window-status-current-style bg=cyan$/;"	k
+style fg	tmux.conf	/^set -g pane-active-border-style fg=blue$/;"	k
+style fg	tmux.conf	/^set -g pane-border-style fg=black$/;"	k
+style fg	tmux.conf	/^set-window-option -g window-status-current-style fg=red$/;"	k
