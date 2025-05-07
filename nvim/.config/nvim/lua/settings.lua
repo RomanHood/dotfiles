@@ -14,8 +14,16 @@ global.maplocalleader = "\\"
 -- views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 3
 
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldcolumn = "0"
+vim.opt.foldtext = ""
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 1
+vim.opt.foldnestmax = 4
+
 o.number = true -- Print the line number in front of each line
--- o.relativenumber = true -- Show the line number relative to the line with the cursor in front of each line.
+o.relativenumber = true -- Show the line number relative to the line with the cursor in front of each line.
 o.clipboard = "unnamedplus" -- uses the clipboard register for all operations except yank.
 o.syntax = "on" -- When this option is set, the syntax with this name is loaded.
 o.autoindent = true -- Copy indent from current line when starting a new line.
@@ -85,6 +93,7 @@ vim.keymap.set("n", "<leader>js", ":%!python -m json.tool<CR>")
 vim.keymap.set("n", "<leader>l", ":tabnext<CR>")
 vim.keymap.set("n", "<leader>pll", ":Git pull<CR>")
 vim.keymap.set("n", "<leader>psh", ":Git push<CR>")
+vim.keymap.set("n", "<leader>q", ":qa!<CR>")
 vim.keymap.set("n", "<leader>t", ":tabnew<CR>")
 vim.keymap.set("n", "<leader>js", ":%!python -m json.tool<CR>")
 vim.keymap.set("n", "<leader>v", "gg V G")
