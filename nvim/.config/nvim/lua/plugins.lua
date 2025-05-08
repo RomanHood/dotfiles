@@ -1,65 +1,89 @@
 return {
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      bigfile = { enabled = true },
+      dashboard = { enabled = true },
+      indent = { enabled = true },
+      input = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      scroll = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+    },
+  },
 	{"github/copilot.vim"},
-<<<<<<< HEAD
-=======
 	{"tpope/vim-vinegar"},
->>>>>>> 5643639 (plugin updates)
+
+	-- Core Dependencies
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-tree/nvim-web-devicons" },
+	
+	-- Theme & UI
 	{ "rebelot/kanagawa.nvim" },
-  {
-    "vim-scripts/RltvNmbr.vim",
-    lazy = false,
-    config = function()
-      -- Enable RltvNmbr for all buffers
-      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-        pattern = "*",
-        callback = function()
-          vim.cmd("RltvNmbr")
-        end
-      })
-    end,
-  },
-	{ "tpope/vim-fugitive" },
-  {'stefandtw/quickfix-reflector.vim'},
-  {'tpope/vim-sensible'},
-  {'Raimondi/delimitMate'},
-  {'tpope/vim-surround'},
-  {'godlygeek/tabular'},
-  {'ervandew/supertab'},
-  {'leafgarland/typescript-vim'},
-  {'vim-ruby/vim-ruby'},
-  {'cespare/vim-toml'},
-  {'pangloss/vim-javascript'},
-  {'mxw/vim-jsx'},
-  {'othree/html5.vim'},
-  {'jparise/vim-graphql'},
-  {'tpope/vim-rails'},
-  {'tpope/vim-rake'},
-  {'tpope/vim-bundler'},
-  {'tpope/vim-rbenv'},
-  {'tpope/vim-rhubarb'},                
-  {'rust-lang/rust.vim' },              
-  {'MaxMEllon/vim-jsx-pretty'},
-  {'martinda/Jenkinsfile-vim-syntax'},
-  {'thoughtbot/vim-rspec'},
-  {'leafOfTree/vim-svelte-plugin'},
+	
+	-- Git Integration
+	{ "tpope/vim-fugitive" },     -- Git commands
+	{ "tpope/vim-rhubarb" },      -- GitHub integration
 	{
-		"nvim-lualine/lualine.nvim",
-		event = "BufEnter",
-		config = function()
-			require("configs.lualine")
-		end,
-		requires = { "nvim-web-devicons" },
+	    "lewis6991/gitsigns.nvim", -- Git decorations
+	    config = function()
+	        require("configs.gitsigns")
+	    end,
+	},
+	
+	-- Essential Editing Tools
+	{ "tpope/vim-surround" },     -- Surround text objects
+	{ "godlygeek/tabular" },      -- Text alignment
+	
+	-- Framework-specific (keeping these as they provide unique features)
+	{ "tpope/vim-rails" },        -- Rails commands & navigation
+	{ "tpope/vim-rake" },         -- Rake integration
+	{ "tpope/vim-bundler" },      -- Bundler integration
+	{ "thoughtbot/vim-rspec" },   -- RSpec runner
+	{ "rust-lang/rust.vim" },     -- Rust commands & integration
+	
+	-- Testing Tools
+	{ 'stefandtw/quickfix-reflector.vim' },
+	-- Modern UI Components
+	{
+	    "nvim-lualine/lualine.nvim",
+	    event = "BufEnter",
+	    config = function()
+	        require("configs.lualine")
+	    end,
+	    dependencies = { "nvim-web-devicons" },
 	},
 	{
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
-		end,
-		config = function()
-			require("configs.treesitter")
-		end,
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+        require("nvim-treesitter.configs").setup({
+            ensure_installed = {
+                "css",
+                "html",
+                "ruby",
+                "javascript",
+                "lua",
+                "json",
+                "markdown",
+                "rust",
+                "toml",
+                "tsx",
+                "typescript",
+                "yaml",
+            },
+            highlight = { enable = true },
+            indent = { enable = true },
+        })
+    end
 	},
 	{ "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
 	{
@@ -86,13 +110,6 @@ return {
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-path", after = "nvim-cmp" },
 	{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-	{
-		"nvimtools/none-ls.nvim",
-		config = function()
-			require("configs.null-ls")
-		end,
-		requires = { "nvim-lua/plenary.nvim" },
-	},
 	{ "williamboman/mason.nvim" },
 	{
 		"williamboman/mason-lspconfig.nvim",
@@ -126,12 +143,6 @@ return {
 			require("colorizer").setup({ "*" })
 		end,
 	},
-	{
-		"akinsho/toggleterm.nvim",
-		config = function()
-			require("configs.toggleterm")
-		end,
-	},
 	{ "lewis6991/impatient.nvim" },
 	{
 		"lewis6991/gitsigns.nvim",
@@ -162,7 +173,6 @@ return {
 			})
 		end,
 	},
-	-- AI CODING
 	{
 		"yetone/avante.nvim",
 		event = "VeryLazy",
@@ -171,9 +181,7 @@ return {
 		opts = {
 			-- add any opts here
 		},
-		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 		build = "make",
-		-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"stevearc/dressing.nvim",
@@ -185,9 +193,9 @@ return {
 				"zbirenbaum/copilot.lua",
 				cmd = "Copilot",
 				event = "InsertEnter",
-				-- config = function()
-				-- 	require("copilot").setup({})
-				-- end, -- for providers='copilot'
+				config = function()
+					require("copilot").setup({})
+				end, -- for providers='copilot'
 			},
 			{
 				-- support for image pasting
