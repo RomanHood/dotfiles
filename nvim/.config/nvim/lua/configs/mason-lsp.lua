@@ -5,15 +5,34 @@ if not status then
 end
 
 masonlsp.setup({
-    automatic_installation = true,
+    -- automatic_installation = true,
     ensure_installed = {
-        "cssls",
-        "eslint",
-        "html",
-        "jsonls",
-        "ts_ls",
-        "pyright",
-        "tailwindcss",
-        "ruby_lsp"
+      "ruby_lsp",
+      "rust_analyzer",
+      "zls",
+      "clangd",
+
+      -- JS/TS
+      "ts_ls",
+      "eslint",
+
+      -- CSS/Tailwind
+      "cssls",
+      "tailwindcss",
+
+      -- SQL
+      "sqlls",
+
+      -- Python
+      "pyright",
+      "ruff",
+
+      -- Data formats
+      "jsonls",
+      "yamlls",
+
+      -- Markup
+      "html",
+      "emmet_ls"
     },
 })
