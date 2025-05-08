@@ -32,11 +32,11 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	buf_set_keymap("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+	buf_set_keymap("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.get_line_diagnostics()<CR>", opts)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-	buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
 	-- format on save
 	if client.server_capabilities.documentFormattingProvider then
@@ -52,32 +52,111 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- TypeScript
 nvim_lsp.ts_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
--- CSS
-nvim_lsp.cssls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
--- Tailwind
 nvim_lsp.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-nvim_lsp.ruby_lsp.setup{
- on_attach = on_attach,
- capabilities = capabilities,
- -- other configuration options...
-}
---
--- nvim_lsp.solargraph.setup({
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- 	-- other configuration options...
--- })
+nvim_lsp.cssls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.eslint.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.ruff.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.svelte.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.clangd.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.pyright.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.yamlls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.jsonls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.emmet_ls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { 
+        "html", "css", "scss", "javascript", 
+        "javascriptreact", "typescript", "typescriptreact",
+        "eruby", "erb"
+    },
+})
+
+nvim_lsp.rust_analyzer.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        ['rust-analyzer'] = {
+            checkOnSave = {
+                command = "clippy"
+            },
+        }
+    }
+})
+
+nvim_lsp.html.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "html", "eruby" }  -- Add eruby to handle ERB files
+})
+
+nvim_lsp.ruby_lsp.setup({
+  init_options = {
+    formatter = 'standard',
+    linters = { 'standard' }
+  },
+  cmd = { "ruby-lsp" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    rubyLsp = {
+      formatter = {
+        enable = true,
+      },
+      enabledFeatures = {
+        "documentHighlights",
+        "documentSymbols",
+        "foldingRanges",
+        "selectionRanges",
+        "semanticHighlighting",
+        "diagnostics",
+        "documentLink"
+      },
+    },
+    rubocop = {
+      enable = true,
+      lint = true,
+      format = true,
+    }
+  }
+})
